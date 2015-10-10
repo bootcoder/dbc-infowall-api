@@ -1,0 +1,9 @@
+.row
+  %h1 Users Index - App Index Temp
+  - if flash[:session]
+    .panel.callout
+      = flash[:session]
+  -if current_user
+    .row
+      %h1
+        = current_user.username
