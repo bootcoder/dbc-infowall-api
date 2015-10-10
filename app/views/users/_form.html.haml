@@ -1,6 +1,6 @@
 .container
   - if flash[:new_user_error]
-    .well.error
+    .panel.callout
       - flash[:new_user_error].each do |error|
         = "Error: #{error}. Please try again"
 
