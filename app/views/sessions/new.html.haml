@@ -1,7 +1,7 @@
 %h2 Login Partial
 
 - if flash[:invalid_login]
-  .well.error
+  .panel.callout
     = flash[:invalid_login]
 
 = form_for :session, :url => login_path do |f|
