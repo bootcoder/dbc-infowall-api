@@ -51,4 +51,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'foundation-rails'
 gem 'rails_12factor'
-gem 'rspec-rails'
+
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0'
+end
