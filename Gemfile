@@ -43,3 +43,7 @@ group :development, :test do
   gem 'spring'
 end
 
+
+# HTC GEMSET
+gem 'haml'
+
