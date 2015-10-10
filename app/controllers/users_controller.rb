@@ -10,11 +10,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.save
-    p @user
-    redirect_to root_path
+    if @user.save
+      flash[:session] = "Logged In"
+      session[:id] = @user.id
+      redirect_to root_path
+    else
+      flash[:new_user_error] = @user.errors
+      render :new
+    end
   end
-
 
   private
 

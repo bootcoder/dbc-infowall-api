@@ -1,0 +1,16 @@
+%h2 Login Partial
+
+- if flash[:invalid_login]
+  .well.error
+    = flash[:invalid_login]
+
+= form_for :session, :url => login_path do |f|
+
+  = f.label :username
+  = f.text_field :username
+
+  = f.label :password
+  = f.password_field :password
+
+  = f.submit
+

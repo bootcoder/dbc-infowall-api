@@ -1,2 +1,13 @@
-%h1 Users Index - App Index Temp
-= link_to 'New User', new_user_path
+.container
+  %h1 Users Index - App Index Temp
+  - if flash[:session]
+    .well.success
+      = flash[:session]
+  .container.nav
+    = link_to 'New User', new_user_path
+    = link_to 'Login', login_path
+    = link_to 'Logout', logout_path
+  -if current_user
+    .container.content
+      %h1
+        = current_user.username

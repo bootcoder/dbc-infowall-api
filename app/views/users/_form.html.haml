@@ -1,11 +1,17 @@
-= form_for @user do |f|
-  = f.label :username
-  = f.text_field :username
+.container
+  - if flash[:new_user_error]
+    .well.error
+      - flash[:new_user_error].each do |error|
+        = "Error: #{error}. Please try again"
 
-  =f.label :password
-  =f.password_field :password
+  = form_for @user do |f|
+    = f.label :username
+    = f.text_field :username
 
-  =f.label :password_confirmation
-  =f.password_field :password_confirmation
+    =f.label :password
+    =f.password_field :password
 
-  = f.submit
+    =f.label :password_confirmation
+    =f.password_field :password_confirmation
+
+    = f.submit
