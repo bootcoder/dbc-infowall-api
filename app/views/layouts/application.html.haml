@@ -9,10 +9,5 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    .row
-      = link_to 'New User', new_user_path
-      •
-      = link_to 'Login', login_path
-      •
-      = link_to 'Logout', logout_path
+    = render "layouts/header"
     = yield
