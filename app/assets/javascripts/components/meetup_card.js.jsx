@@ -1,15 +1,13 @@
 var MeetupCard = React.createClass({
-  getInitialState: function(){
-    return { events: this.props.events }
-  },
 
   render: function() {
     return (
       <div>
-        <MeetupImage />
-        <MeetupDate />
-        <MeetupDesc />
+        {this.props.event.id}
+        {this.props.event.organizer}
+        {this.props.event.location}
+
       </div>
-    )
+      );
   }
 });
