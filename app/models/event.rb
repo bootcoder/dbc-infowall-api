@@ -25,9 +25,9 @@ class Event < ActiveRecord::Base
   end
 
   def self.all_meetups
-    self.sanitize_meetups
-    self.pull_meetups
-    self.parse_meetups
+    sanitize_meetups
+    pull_meetups
+    parse_meetups
     Event.all
   end
 

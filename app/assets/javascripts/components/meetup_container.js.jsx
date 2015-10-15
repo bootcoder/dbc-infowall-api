@@ -4,19 +4,12 @@ var MeetupContainer = React.createClass({
   },
 
   render: function() {
-    console.log("this props in meetupcard comp");
-    console.log(this.props)
-    var list = this.props.events.map(function(event){
-      return <MeetupCard key={event.id} event={event} />
-    })
+    var events = this.props.events;
     return (
-      <div>
-        <div>
-          {list}
-        </div>
-        <MeetupImage />
-        <MeetupDate />
-        <MeetupDesc />
+      <div className="row">
+        {events.map(function(event){
+          return <MeetupCard key={event.id} event={event} />;
+        })}
       </div>
     )
   }

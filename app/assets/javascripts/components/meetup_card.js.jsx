@@ -2,8 +2,8 @@ var MeetupCard = React.createClass({
 
   render: function() {
     return (
-      <div>
-        <div className="card-layout">
+      <div className="small-2 columns">
+        <div className="">
           {this.props.event.id}
           {this.props.event.schedule}
           <div className="content-right">
