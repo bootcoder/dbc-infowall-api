@@ -8,3 +8,28 @@
 # as a user I want to see events that are happening this week
 # as a user I want to see meet ups in the space
 # as a user I want to
+
+
+
+
+
+
+# COMPONENTS
+
+# Meetup Card View
+
+# Title
+# card holder
+# card
+
+
+
+
+
+
+# STAFF Card View
+
+
+
+# Image Slide View
+
