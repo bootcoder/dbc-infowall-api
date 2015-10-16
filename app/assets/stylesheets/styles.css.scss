@@ -126,6 +126,7 @@ body#background {
 }
 
 
+
 .fullWidth {
    width: 100%;
    margin-left: auto;
@@ -154,8 +155,16 @@ body#background {
   color: #19ABB5;
 }
 
+.black-text {
+  color: black;
+}
+
 .no-pad p{
   padding: 0;
+}
+
+.no-pad-left {
+  padding-left: 0 !important;
 }
 
 .no-margin {

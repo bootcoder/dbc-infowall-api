@@ -5,7 +5,7 @@ class EventsController < ApplicationController
 
   def index
     Event.all_meetups
-    @events = Event.last(8).reverse
+    @events = Event.last(8)
     ap @events
     respond_to do |format|
       format.html { render :index }

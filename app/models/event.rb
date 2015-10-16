@@ -23,7 +23,7 @@ class Event < ActiveRecord::Base
       Event.create(title: meetup["title"],
            organizer: "Andrew Fitch",
            location: sanitize_location(meetup["location"]["text"]),
-           img_url: ActionController::Base.helpers.asset_path('andrew-fitch.png'),
+           img_url: ActionController::Base.helpers.asset_path('jenny.jpg'),
            meetup_url: meetup["location"]["href"],
            description: sanitize_description(meetup["description"]),
            attending: meetup["attending"],
