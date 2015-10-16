@@ -22,5 +22,6 @@ var showDate = function(){
 }
 
 var formatDate = function(date_input){
-  return new Date(date_input).toDateString();
+  var date = new Date(date_input).toDateString();
+  return date.substr(0, date.length-4)
 }

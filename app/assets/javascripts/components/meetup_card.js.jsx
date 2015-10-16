@@ -16,13 +16,13 @@ var MeetupCard = React.createClass({
             <p className="desc-text">{this.props.event.description}</p>
           </div>
           <div className="small-12 large-12 bg-dark absolute-bottom height-50px">
-            <div className="row ">
-              <div className="large-9 columns">
-                <p className="date-text">{formatDate(this.props.event.schedule)}</p>
-                <p className="date-text">{this.props.event.location}</p>
+            <div className="row">
+              <div className="large-9 columns no-pad absolute-bottom">
+                <p className="bold date-text">{formatDate(this.props.event.schedule)}</p>
+                <p className="bold date-text">{this.props.event.location}</p>
               </div>
               <div className="large-3 columns avatar">
-                <Img className="right fullWidth" src={this.props.event.img_url} className ="right " />
+                <Img className=" fullWidth" src={this.props.event.img_url} className =" height-50" />
               </div>
             </div>
           </div>

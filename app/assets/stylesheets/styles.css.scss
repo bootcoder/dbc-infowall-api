@@ -1,6 +1,7 @@
-/** {
+* {
   outline: 1px solid blue;
-}*/
+}
+
 
 .bugger {
   outling: 1px solid red;
@@ -66,7 +67,8 @@
 }
 
 .date-text {
-  font-size: .6em;
+  margin-bottom: .7rem;
+  font-size: .8em;
   text-align: center;
 }
 
@@ -103,6 +105,10 @@
 
 .bg-dark {
   background-color: maroon;
+}
+
+.no-pad p{
+  padding: 0;
 }
 
 
