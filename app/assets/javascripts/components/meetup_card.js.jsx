@@ -13,4 +13,3 @@ var MeetupCard = React.createClass({
       );
   }
 });
-// <p className="right organizer-text fullWidth">{this.props.event.organizer}</p>
