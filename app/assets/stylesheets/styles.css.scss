@@ -101,7 +101,7 @@ body#background {
 }
 
 .circle-60px {
-  border-radius: 50%;
+  border-radius: 50% 0% 50% 50%;
   height: 60px;
   width: 60px;
 }
@@ -215,6 +215,10 @@ body#background {
 
 .rounded-corners {
   border-radius: 10% 5% 0% 10%;
+}
+
+.rounded-bottom {
+  border-radius: 0% 0% 37px 0%
 }
 
 
