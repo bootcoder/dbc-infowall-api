@@ -8,6 +8,6 @@
     = javascript_include_tag "vendor/modernizr"
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  %body{:onload => "setInterval(function() {window.location.reload();}, 60000);"}
     = render "layouts/header"
     = yield

@@ -18,7 +18,7 @@ var checkTime = function(i){
 }
 
 var showDate = function(){
-  document.getElementById('date').innerHTML = new Date().toDateString()
+  document.getElementById('date').innerHTML = formatDate(new Date());
 }
 
 var formatDate = function(date_input){
