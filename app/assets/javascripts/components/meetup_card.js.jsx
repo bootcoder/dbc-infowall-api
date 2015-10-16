@@ -2,7 +2,7 @@ var MeetupCard = React.createClass({
 
   render: function() {
     return (
-      <div className="small-3 columns pad-1 bg-card">
+      <div className="small-3 columns margin-1 bg-card">
         <div className="">
           <h4>{this.props.event.title}</h4>
           <p>{this.props.event.id}</p>
