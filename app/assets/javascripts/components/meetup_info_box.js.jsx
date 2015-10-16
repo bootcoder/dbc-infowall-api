@@ -4,7 +4,7 @@ var MeetupInfoBox = React.createClass({
     var props = this.props.event
     if (props.event_type == 'student'){
       return (
-        <div className="small-12 large-12 bg-card absolute-bottom height-60px">
+        <div className="small-12 large-12 bg-gray absolute-bottom height-60px">
           <div className="row">
             <MeetupDate event={props} />
             <MeetupImage event={props} />

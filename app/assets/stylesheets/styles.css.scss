@@ -55,6 +55,10 @@ body#background {
   background-image: url(image-path("sb-beige.png"));
 }
 
+.bg-gray {
+  background-color: gray;
+}
+
 .max-200 {
   max-height: 200px;
   max-width: 200px;
