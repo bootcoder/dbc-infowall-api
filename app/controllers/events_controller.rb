@@ -4,7 +4,8 @@ class EventsController < ApplicationController
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
 
   def index
-    @events = Event.all_meetups
+    Event.all_meetups
+    @events = Event.last(8).reverse
     ap @events
     respond_to do |format|
       format.html { render :index }
