@@ -1,9 +1,13 @@
 class Event < ActiveRecord::Base
 
-  validates_uniqueness_of :meetup_url
+  # validates_uniqueness_of :meetup_url
 
   def self.sanitize_description(str)
-    new_str = str.slice(0..(str.index('...') + '...'.length))
+    str.slice(0..(str.index('...') + '...'.length))
+  end
+
+  def self.sanitize_location(str)
+    str.gsub('San Francisco', '')
   end
 
   def self.pull_meetups
@@ -18,7 +22,7 @@ class Event < ActiveRecord::Base
       ap meetup
       Event.create(title: meetup["title"],
            organizer: "Andrew Fitch",
-           location: meetup["location"]["text"],
+           location: sanitize_location(meetup["location"]["text"]),
            img_url: ActionController::Base.helpers.asset_path('andrew-fitch.png'),
            meetup_url: meetup["location"]["href"],
            description: sanitize_description(meetup["description"]),
