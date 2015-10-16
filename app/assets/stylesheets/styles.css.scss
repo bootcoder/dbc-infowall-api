@@ -100,7 +100,12 @@
 }
 
 .desc-text {
+  padding-top: 5%;
   font-size: 1em;
+}
+
+.title-text {
+
 }
 
 .organizer-text {
@@ -149,6 +154,10 @@
   padding-top: 5px;
 }
 
+.pad-top-10px {
+  padding-top: 7%;
+}
+
 .pad-left-30px {
   padding-left: 30px;
 }
@@ -160,6 +169,14 @@
 .pad-right-10px {
   padding-right: 60px;
 }
+
+.rounded-corners {
+  border-radius: 10% 5% 0% 10%;
+}
+
+
+
+
 /*
 .vertical-center {
   width: 100%;
