@@ -1,4 +1,6 @@
-function startTime() {
+// Birthplace of all time related things
+
+var startTime = function(){
   var today = new Date();
   var h = today.getHours();
   var m = today.getMinutes();
@@ -10,11 +12,15 @@ function startTime() {
   var t = setTimeout(startTime, 500);
 }
 
-function checkTime(i) {
+var checkTime = function(i){
   if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
   return i;
 }
 
-function showDate() {
+var showDate = function(){
   document.getElementById('date').innerHTML = new Date().toDateString()
+}
+
+var formatDate = function(date_input){
+  return new Date(date_input).toDateString();
 }

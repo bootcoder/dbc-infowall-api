@@ -5,7 +5,8 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all_meetups
-   respond_to do |format|
+    ap @events
+    respond_to do |format|
       format.html { render :index }
       format.json { render json: @events }
     end

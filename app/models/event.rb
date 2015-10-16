@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
 
+  validates_uniqueness_of :meetup_url
+
   def self.pull_meetups
     response = RestClient.get 'https://www.kimonolabs.com/api/d0g1wwgu?apikey=53bf2440ad1b5ac10f5740029c9e4f76'
     @parsed = JSON.parse(response)
@@ -13,8 +15,8 @@ class Event < ActiveRecord::Base
       Event.create(title: meetup["title"],
            organizer: "Andrew Fitch",
            location: meetup["location"]["text"],
-           img_url: Faker::Avatar.image,
-           meetup_url: meetup["url"],
+           img_url: ActionController::Base.helpers.asset_path('/andrew-fitch.png'),
+           meetup_url: meetup["location"]["href"],
            description: meetup["description"],
            attending: meetup["attending"],
            event_type: "meetup",
@@ -22,12 +24,7 @@ class Event < ActiveRecord::Base
     end
   end
 
-  def self.sanitize_meetups
-    Event.destroy_all(event_type: "meetup")
-  end
-
   def self.all_meetups
-    sanitize_meetups
     pull_meetups
     parse_meetups
     Event.all
