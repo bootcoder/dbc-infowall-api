@@ -1,8 +1,10 @@
 /** {
   outline: 1px solid blue;
-}
-*/
+}*/
 
+.nav-text {
+  font-size: 1.7em;
+}
 
 .sb-dark {
   background-image: url(image-path("sb-dark-shapes.png")) !important;
@@ -18,9 +20,10 @@
 
 
 .image {
-  padding-top: 3%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   padding-left: 5%;
-  height: 2.4em;
+  height: 2.5em;
 }
 
 
@@ -75,13 +78,23 @@
   height: 30px;
 }
 
+.square-50px {
+  height: 50px;
+  width: 50px;
+}
+
+.square-60px {
+  height: 60px;
+  width: 60px;
+}
+
 .text-half {
   font-size: .5em;
 }
 
 .date-text {
-  padding-left: 10px;
-  margin-bottom: .7rem;
+  /*margin-left: .5rem;*/
+  margin-bottom: .2rem;
   font-size: .9em;
   text-align: center;
 }
@@ -109,7 +122,6 @@
 
 .absolute-bottom {
   position: absolute;
-  right:    0px;
   bottom:   0px;
 }
 
@@ -117,12 +129,12 @@
   position:relative;
 }
 
-.bg-dark {
+.bg-maroon {
   background-color: maroon;
 }
 
 .bg-teal {
-  background-color: teal;
+  background-color: #19ABB5;
 }
 
 .no-pad p{
@@ -133,7 +145,29 @@
   margin: 0;
 }
 
+.pad-top-5px {
+  padding-top: 5px;
+}
 
+.pad-left-30px {
+  padding-left: 30px;
+}
+
+.pad-left-35px {
+  padding-left: 35px;
+}
+
+.pad-right-10px {
+  padding-right: 60px;
+}
+/*
+.vertical-center {
+  width: 100%;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+}
+*/
 
 
 
