@@ -1,5 +1,13 @@
-* {
+/** {
   outline: 1px solid blue;
+}*/
+
+.bugger {
+  outling: 1px solid red;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 
@@ -31,17 +39,71 @@
   max-width: 200px;
 }
 
+.max-50 {
+  max-height: 50px;
+  max-width: 50px;
+}
+
 .max-100 {
   max-height: 100px;
   max-width: 100px;
 }
 
+.height-200px {
+  height: 300px;
+}
+
+.height-50px {
+  height: 50px;
+}
+
+.height-30px {
+  height: 30px;
+}
+
+.text-half {
+  font-size: .5em;
+}
+
+.date-text {
+  font-size: .6em;
+  text-align: center;
+}
+
+.desc-text {
+  font-size: 1em;
+}
+
+.organizer-text {
+  font-size: .1em;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}
 
 
+.fullWidth {
+   width: 100%;
+   margin-left: auto;
+   margin-right: auto;
+   max-width: initial;
+}
 
+.absolute-bottom {
+  position: absolute;
+  right:    0px;
+  bottom:   0px;
+}
 
+.relative-div {
+  position:relative;
+}
 
-
+.bg-dark {
+  background-color: maroon;
+}
 
 
 
