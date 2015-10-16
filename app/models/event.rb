@@ -17,13 +17,15 @@ class Event < ActiveRecord::Base
   end
 
   def self.parse_meetups
+    #demo code only
+    @images = ["fitch.jpg", "jenny.jpg", "kt.jpg", "anne.jpg", "hunter.jpg"]
 
     @parsed.each do |meetup|
       ap meetup
       Event.create(title: meetup["title"],
            organizer: "Andrew Fitch",
            location: sanitize_location(meetup["location"]["text"]),
-           img_url: ActionController::Base.helpers.asset_path('jenny.jpg'),
+           img_url: ActionController::Base.helpers.asset_path(@images.shuffle[0]),
            meetup_url: meetup["location"]["href"],
            description: sanitize_description(meetup["description"]),
            attending: meetup["attending"],
