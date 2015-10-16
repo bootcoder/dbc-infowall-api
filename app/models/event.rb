@@ -18,7 +18,7 @@ class Event < ActiveRecord::Base
 
   def self.parse_meetups
     #demo code only
-    @images = ["fitch.jpg", "jenny.jpg", "kt.jpg", "anne.jpg", "hunter.JPG"]
+    @images = ["fitch.jpg", "jenny.jpg", "kt.jpg", "jullian.jpg", "hunter.JPG"]
 
     @parsed.each do |meetup|
       ap meetup

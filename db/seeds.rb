@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-@images = ["fitch.jpg", "jenny.jpg", "kt.jpg", "anne.jpg", "hunter.JPG"]
+@images = ["fitch.jpg", "jenny.jpg", "kt.jpg", "jullian.jpg", "hunter.JPG"]
 
 5.times do
   Event.create(title: "#{Faker::Hacker.noun} #{Faker::Hacker.ingverb}",
