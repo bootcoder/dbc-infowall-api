@@ -1,1 +1,4 @@
-console.log("JJJJJJ");
+$(document).ready(function(){
+  console.log("Main JS ready");
+  startTime();
+})

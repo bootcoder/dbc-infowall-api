@@ -6,7 +6,9 @@ var MeetupCard = React.createClass({
         <div className="">
           <h4>{this.props.event.title}</h4>
           <p>{this.props.event.id}</p>
-          <p>{this.props.event.schedule}</p>
+          <div className="panel callout radius">
+            <p>{this.props.event.schedule}</p>
+          </div>
           <div className="right">
             {this.props.event.organizer}
             {this.props.event.location}
