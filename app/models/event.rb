@@ -7,14 +7,16 @@ class Event < ActiveRecord::Base
   end
 
   def self.parse_meetups
+
     @parsed.each do |meetup|
-      Event.create(name: meetup["title"]["text"],
+      ap meetup
+      Event.create(title: meetup["title"],
            organizer: "Andrew Fitch",
            location: meetup["location"]["text"],
            img_url: Faker::Avatar.image,
-           meetup_url: meetup["title"]["href"],
-           description: meetup["description"]["text"],
-           attending: meetup["attending"]["text"],
+           meetup_url: meetup["url"],
+           description: meetup["description"],
+           attending: meetup["attending"],
            event_type: "meetup",
            schedule: DateTime.parse(meetup["date"]))
     end
