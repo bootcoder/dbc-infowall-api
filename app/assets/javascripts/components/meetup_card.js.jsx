@@ -4,7 +4,7 @@ var MeetupCard = React.createClass({
     return (
       <div className="small-3 large-3 columns margin-1 fullWidth">
         <div className="sb-dark gray-text height-200px row relative-div rounded-corners">
-          <p className="center white-text title-text fullWidth pad-top-10px height-50px bold">{this.props.event.title}</p>
+          <p className="center teal-text title-text fullWidth pad-top-10px height-50px bold">{this.props.event.title}</p>
           <div className="center small-12 large-12 columns">
             <p className="desc-text">{this.props.event.description}</p>
           </div>
