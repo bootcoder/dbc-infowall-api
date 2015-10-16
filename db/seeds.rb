@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+5.times do
+  Event.create(title: "#{Faker::Hacker.noun} #{Faker::Hacker.ingverb}",
+             organizer: Faker::Name.first_name,
+             location: Faker::Address.street_address,
+             img_url: ActionController::Base.helpers.asset_path('andrew-fitch.png'),
+             meetup_url: Faker::Internet.url('mockmeetup.com'),
+             description: Faker::Hacker.say_something_smart,
+             event_type: "student",
+             schedule: Faker::Date.forward(5))
+end

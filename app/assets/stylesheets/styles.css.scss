@@ -2,6 +2,14 @@
   outline: 1px solid blue;
 }*/
 
+body#background {
+  background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .nav-text {
   font-size: 1.7em;
 }
@@ -62,7 +70,7 @@
   max-width: 100px;
 }
 
-.height-200px {
+.height-300px {
   height: 300px;
 }
 
