@@ -3,7 +3,7 @@ var MeetupLocation = React.createClass({
   render: function() {
     return (
 
-        <p className="location-text">{this.props.event.location}</p>
+        <p className="pad-top-12P bold location-text">{this.props.event.location}</p>
 
       );
   }

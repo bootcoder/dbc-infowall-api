@@ -27,9 +27,7 @@ var formatDate = function(date_input){
 }
 
 var spaceDay = function(dateString){
-  return [dateString.slice(0, 3), "\n", dateString.slice(3)].join('');
-
+  var output = [dateString.slice(0, 3), "\n\r".html, dateString.slice(3)].join('');
+  console.log(output);
+  return output;
 }
-
-
-// Mon Oct 19

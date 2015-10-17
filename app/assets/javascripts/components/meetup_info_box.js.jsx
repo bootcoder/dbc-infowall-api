@@ -8,8 +8,8 @@ var MeetupInfoBox = React.createClass({
           <div className="row">
             <MeetupDate event={props} />
             <div className="small-6 large-6 columns black-text no-margin">
-              <MeetupOrganizer event={props} />
               <MeetupLocation event={props} />
+              <MeetupOrganizer event={props} />
             </div>
             <MeetupImage event={props} />
           </div>
@@ -21,8 +21,8 @@ var MeetupInfoBox = React.createClass({
           <div className="row">
             <MeetupDate event={props} />
             <div className="small-6 large-6 columns black-text no-margin">
-              <MeetupOrganizer event={props} />
               <MeetupLocation event={props} />
+              <MeetupOrganizer event={props} />
             </div>
             <MeetupImage event={props} />
           </div>
