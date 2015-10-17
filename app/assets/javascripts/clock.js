@@ -27,7 +27,7 @@ var formatDate = function(date_input){
 }
 
 var spaceDay = function(dateString){
-  return [dateString.slice(0, 3), " ", dateString.slice(3)].join('');
+  return [dateString.slice(0, 3), "  ", dateString.slice(3)].join('');
 
 }
 
