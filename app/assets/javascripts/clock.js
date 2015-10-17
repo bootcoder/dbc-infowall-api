@@ -25,3 +25,11 @@ var formatDate = function(date_input){
   var date = new Date(date_input).toDateString();
   return date.substr(0, date.length-4)
 }
+
+var spaceDay = function(dateString){
+  return [dateString.slice(0, 3), " ", dateString.slice(3)].join('');
+
+}
+
+
+// Mon Oct 19
