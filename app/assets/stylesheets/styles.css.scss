@@ -1,7 +1,7 @@
 /** {
   outline: 1px solid blue;
-}*/
-
+}
+*/
 body#background {
   background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;
   -webkit-background-size: cover;
@@ -97,9 +97,32 @@ body#background {
 
 .date-text {
   /*margin-left: .5rem;*/
-  margin-bottom: .6rem;
-  font-size: .85em;
+  /*margin-bottom: .6rem;*/
+  font-size: 1.2em;
   text-align: center;
+
+}
+
+
+.location-text {
+  /*margin-left: .5rem;*/
+  margin-bottom:  .6rem;
+  font-size: .7em;
+  text-align: right;
+}
+
+.organizer-text {
+  font-size: 1em;
+  margin-bottom:  .01rem;
+  text-align: right;
+}
+
+.border-left-white {
+  border-left: 1px solid white;
+}
+
+.border-right-white {
+  border-right: 1px solid white;
 }
 
 .desc-text {
@@ -109,11 +132,6 @@ body#background {
 
 .title-text {
   font-size: 1em;
-}
-
-.organizer-text {
-  font-size: 1em;
-  text-align: center;
 }
 
 .center {
@@ -162,6 +180,10 @@ body#background {
   padding-left: 0 !important;
 }
 
+.no-pad-right {
+  padding-right: 0 !important;
+}
+
 .no-margin {
   margin: 0;
 }
@@ -180,6 +202,18 @@ body#background {
 
 .pad-left-5P {
   padding-left: 5%;
+}
+
+.pad-top-5P {
+  padding-top: 5%;
+}
+
+.pad-top-10P {
+  padding-top: 10%;
+}
+
+.pad-top-14P {
+  padding-top: 14%;
 }
 
 .pad-left-30px {
