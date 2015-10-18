@@ -6,7 +6,6 @@ class MeetupsController < ApplicationController
   def cards
     Meetup.all_meetups
     @meetups = Meetup.order(schedule: :desc).last(8).reverse
-    ap @meetups
   end
 
   def index
