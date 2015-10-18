@@ -3,10 +3,13 @@ class EventsController < ApplicationController
   EVENT_NOT_FOUND_ERROR = { :errors => "ERROR: Event not found." }
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
 
+  def cards
+    @events = Event.order(schedule: :desc).last(8).reverse
+  end
+
+
   def index
-    Event.all_meetups
-    @events = Event.last(8)
-    ap @events
+    @events = Event.order(:schedule).last(8)
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @events }

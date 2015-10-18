@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
 
-  root 'events#index'
+  root 'meetups#index'
 
   get  'login'  => 'sessions#new'
   post 'login' => 'sessions#create'
 
   get  'logout' => 'sessions#destroy'
   post 'logout' => 'sessions#destroy'
+
+  get 'meetups/cards' => 'meetups#cards'
 
   resources :users
   resources :meetups

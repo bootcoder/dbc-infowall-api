@@ -31,5 +31,8 @@ module FullFoyerRails
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Load in for client_side_validations
+    config.autoload_paths << "#{config.root}/lib"
   end
 end

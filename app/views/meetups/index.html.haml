@@ -1,0 +1,32 @@
+.sb-dark
+  %h1.teal-text Listing meetups
+  %table
+    %thead
+      %tr
+        %th Title
+        %th Organizer
+        %th Location
+        %th Staff Picture
+        %th Meetup url
+        %th Attending
+        %th Event type
+        %th Descrption
+        %th Schedule
+        %th{:colspan => "3"}
+    %tbody
+      - @meetups.each do |meetup|
+        %tr
+          %td= meetup.title
+          %td= meetup.organizer
+          %td= meetup.location
+          %td= image_tag meetup.img_url, class: 'circle-60px'
+          %td= meetup.meetup_url
+          %td= meetup.attending
+          %td= meetup.event_type
+          %td= meetup.description
+          %td= meetup.schedule.to_formatted_s(:short)
+          %td= link_to 'Show', meetup
+          %td= link_to 'Edit', edit_meetup_path(meetup)
+          %td= link_to 'Destroy', meetup, method: :delete, data: { confirm: 'Are you sure?' }
+  %br/
+  = link_to 'New Meetup', new_meetup_path
