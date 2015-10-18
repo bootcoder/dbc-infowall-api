@@ -8,42 +8,41 @@
         - @meetup.errors.full_messages.each do |message|
           .panel= message
   .row
-    .large-6.columns
-      = f.label :title
-      = f.text_field :title
+    .large-12.columns.large-centered
+      .large-6.columns
+        = f.label :title
+        = f.text_field :title
+      .large-6.columns
+        = f.label :organizer
+        = f.text_field :organizer
   .row
-    .large-6.columns
-      = f.label :organizer
-      = f.text_field :organizer
+    .large-12.columns.large-centered
+      .large-6.columns
+        = f.label :event_type
+        = f.select :event_type, [['Internal', 'internal'],['Student', 'student'], ['Meetup', 'meetup']]
+      .large-6.columns
+        = f.label 'Staff Picture'
+        = f.select :img_url, [['Andrew', 'andrew.jpg'], ['Anne', 'anne.jpg'], ['Julian', 'julian.jpg'], ['K T', 'kt.jpg'],["Hunter", 'hunter.JPG'], ['Jenny', 'jenny.jpg']]
   .row
-    .large-6.columns
-      = f.label "Location: MAX 18 characters"
-      = f.text_field :location
-  .row
-    .large-6.columns
-      = f.label 'Staff Picture'
-      = f.select :img_url, [["current: #{@meetup.img_url}", "#{@meetup.img_url}"], ["Hunter", 'hunter.JPG'], ['Jenny', 'jenny.jpg'], ['Andrew', 'andrew.jpg'], ['Anne', 'anne.jpg'], ['Julian', 'julian.jpg'], ['K T', 'kt.jpg']]
-  .row
-    .large-6.columns
-      = f.label :meetup_url
-      = f.text_field :meetup_url
-  .row
-    .large-6.columns
-      = f.label :attending
-      = f.text_field :attending
-  .row
-    .large-6.columns
-      = f.label :event_type
-      = f.select :event_type, [['Student', 'student'], ['Meetup', 'meetup']]
-  .row
-    .large-12.columns
+    .large-12.columns.large-centered
       %label
         = f.label :description
-
-        = f.text_field :description
+      = f.text_field :description
   .row
-    .large-6.columns
+    .large-12.columns.large-centered
+      .large-6.columns
+        = f.label "Location: MAX 18 characters"
+        = f.text_field :location
+      .large-6.columns
+        = f.label "Meetup URL:"
+        = f.text_field :meetup_url, placeholder: " (enter random numbers if none)"
+  .row
+    .large-6.columns.large-centered
+      = f.label "Number attending (if any)"
+      = f.text_field :attending
+  .row
+    .large-6.columns.large-centered.date-select
       = f.label :schedule
       = f.datetime_select :schedule
-  .actions
-    = f.submit
+  .actions.large-centered.center
+    = f.submit class: "button radius"

@@ -28,6 +28,20 @@ var CardInfoBox = React.createClass({
           </div>
         </div>
       );
+    } else if (props.event_type == 'internal') {
+      return (
+        <div className="small-12 large-12 bg-yellow absolute-bottom height-60px rounded-bottom">
+          <div className="row">
+            <CardDate event={props} />
+            <div className="small-6 large-6 columns black-text no-margin">
+              <CardLocation event={props} />
+              <CardOrganizer event={props} />
+            </div>
+            <CardImage event={props} />
+          </div>
+        </div>
+      );
     }
+
   }
 });

@@ -1,5 +1,6 @@
 .sb-dark
-  %h1.teal-text Listing meetups
+  %h1.teal-text All Meetups
+  = link_to 'New Meetup', new_meetup_path, class: 'button round'
   %table
     %thead
       %tr
@@ -28,5 +29,3 @@
           %td= link_to 'Show', meetup
           %td= link_to 'Edit', edit_meetup_path(meetup)
           %td= link_to 'Destroy', meetup, method: :delete, data: { confirm: 'Are you sure?' }
-  %br/
-  = link_to 'New Meetup', new_meetup_path

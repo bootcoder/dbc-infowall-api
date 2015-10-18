@@ -1,7 +1,10 @@
-/** {
+* {
   outline: 1px solid blue;
 }
-*/
+
+
+
+
 body#background {
   background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;
   -webkit-background-size: cover;
@@ -14,8 +17,20 @@ body#background {
   font-size: 1.7em;
 }
 
+.date-select {
+  display: inline;
+}
+
 .sb-dark {
   background-image: url(image-path("sb-dark-shapes.png")) !important;
+}
+
+.bg-yellow {
+  background-color: yellow;
+}
+
+.bg-white {
+  background-color: white;
 }
 
 .bugger {
