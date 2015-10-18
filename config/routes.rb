@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'meetups#index'
+  root 'meetups#cards'
 
   get  'login'  => 'sessions#new'
   post 'login' => 'sessions#create'
