@@ -2,8 +2,24 @@
   outline: 1px solid blue;
 }*/
 
+* {
+margin: 0;
+}
 
+html, body {
+height: 100%;
+}
 
+.wrapper {
+min-height: 100%;
+height: auto !important;
+height: 100%;
+margin: 0 auto -4em;
+}
+
+.footer, .push {
+height: 4em;
+}
 
 body#background {
   background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;

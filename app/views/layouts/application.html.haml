@@ -11,5 +11,8 @@
     = csrf_meta_tags
   %body#background{:onload => "setInterval(function() {window.location.reload();}, 512000);"}
     = render "layouts/header"
-
-    = yield
+    .wrapper
+      = yield
+    .footer
+      - if @marquee
+        = render 'marquees/marquee_scroll', locals: {marquee: @marquee}
