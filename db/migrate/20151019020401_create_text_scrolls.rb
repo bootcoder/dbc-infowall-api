@@ -4,6 +4,8 @@ class CreateTextScrolls < ActiveRecord::Migration
       t.string, :text
       t.string, :text_color
       t.string, :bg_color
+      t.string :display_status
+
       t.integer :scroll_amount
 
       t.timestamps null: false
