@@ -1,4 +1,4 @@
-.large-12.columns
+.large-12.columns.pad-top-bottom-15px
   .row
     .large-12.columns.center
       = link_to "Start Show", root_path, class: 'success button radius width-200px'
@@ -7,12 +7,12 @@
       .button-group.round
         = link_to 'New Meetup', new_meetup_path, class: 'button round width-200px'
         = link_to 'New Event', new_event_path, class: 'button round width-200px'
-        = link_to 'New Marquee', new_text_scroll_path, class: 'button round width-200px'
+        = link_to 'New Marquee', new_marquee_path, class: 'button round width-200px'
   .row
     .large-12.columns.center
-      .button-group.round.pad-top-bottom-15px
+      .button-group.round.pad-top-15px
         = link_to 'All Meetups', meetups_path, class: 'button round width-200px info'
         = link_to 'All Events', events_path, class: 'button round width-200px info'
-        = link_to 'All Marquees', text_scrolls_path, class: 'button round width-200px info'
+        = link_to 'All Marquees', marquees_path, class: 'button round width-200px info'
 -# = link_to 'New Slide (n/a)', new_slide_path, class: 'button round width-200px'
 -# = link_to 'All Slides (n/a)', slides_path, class: 'button round width-200px info'
