@@ -1,3 +1,3 @@
 - if @marquee
-  %marquee{bgcolor: "#{@marquee.bg_color}", style: "color: #{@marquee.text_color};", scrollamount: "#{@marquee.scroll_amount}"}
+  %marquee{bgcolor: "#{@marquee.bg_color}", style: "color: #{@marquee.text_color}; font-size: 1.5em;", scrollamount: "#{@marquee.scroll_amount}", height: 50, class: "pad-top-5px" }
     = @marquee.text
