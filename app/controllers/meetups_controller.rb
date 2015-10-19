@@ -12,6 +12,7 @@ class MeetupsController < ApplicationController
     @marquee = Marquee.where(display_status: 'active').first
     Meetup.all_meetups
     @meetups = Meetup.order(schedule: :desc).last(8).reverse
+    ap @meetups
   end
 
   def index

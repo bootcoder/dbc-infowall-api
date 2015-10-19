@@ -30,15 +30,16 @@ class Meetup < ActiveRecord::Base
   def self.parse_meetups
 
     @parsed.each do |meetup|
+      ap meetup
       Meetup.create(title: meetup["title"],
            organizer: "Andrew Fitch",
            location: sanitize_location(meetup["location"]["text"]),
            img_url: "andrew.jpg",
            meetup_url: meetup["location"]["href"],
-           description: sanitize_description(meetup["description"]),
+           description: sanitize_description(meetup["description"]['text']),
            attending: meetup["attending"],
            event_type: "meetup",
-           schedule: DateTime.parse(meetup["date"]))
+           schedule: DateTime.parse(meetup["date"][0] + " " + meetup["date"][1]))
     end
   end
 
