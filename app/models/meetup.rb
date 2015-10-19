@@ -3,6 +3,15 @@ class Meetup < ActiveRecord::Base
   validates_uniqueness_of :meetup_url
   validates :location, length: { maximum: 18}
 
+  validates_presence_of :meetup_url
+  validates_presence_of :location
+  validates_presence_of :title
+  validates_presence_of :organizer
+  validates_presence_of :description
+  validates_presence_of :img_url
+  validates_presence_of :event_type
+  validates_presence_of :schedule
+
 
   def self.sanitize_description(str)
     str.slice(0..(str.index('.') + '.'.length))

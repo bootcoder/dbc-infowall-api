@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    @events = Event.all_meetups
-    p " * " * 50
-    ap @events
-    p " * " * 50
     @users = User.all
   end
 

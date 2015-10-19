@@ -1,12 +1,12 @@
 = form_for(@meetup) do |f|
   - if @meetup.errors.any?
-    #error_explanation
+    .panel.callout
       %h2
         = pluralize(@meetup.errors.count, "error")
         prohibited this meetup from being saved:
       %ul
         - @meetup.errors.full_messages.each do |message|
-          .panel= message
+          %li= message
   .row
     .large-12.columns.large-centered
       .large-6.columns

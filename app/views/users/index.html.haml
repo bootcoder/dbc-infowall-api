@@ -1,17 +1,18 @@
-.row
-  %h1 Users Index - App Index Temp
-  - if flash[:session]
-    .panel.callout
-      = flash[:session]
-  -if current_user
-    .row
-      %h1
-        = current_user.username
+.sb-light.large-8.large-centered.columns
+  .row
+    %h1 Users Index
+    - if flash[:session]
+      .panel.callout
+        = flash[:session]
+    -if current_user
+      .row
+        %h1
+          = current_user.username
 
-.row
-  = link_to 'New User', new_user_path
-  •
-  = link_to 'Login', login_path
-  •
-  = link_to 'Logout', logout_path
+  .row
+    = link_to 'New User', new_user_path
+    •
+    = link_to 'Login', login_path
+    •
+    = link_to 'Logout', logout_path
 

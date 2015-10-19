@@ -1,16 +1,17 @@
-%h2 Login Partial
+.sb-light.large-8.large-centered.columns
+  %h2 Login Partial
 
-- if flash[:invalid_login]
-  .panel.callout
-    = flash[:invalid_login]
+  - if flash[:invalid_login]
+    .panel.callout
+      = flash[:invalid_login]
 
-= form_for :session, :url => login_path do |f|
+  = form_for :session, :url => login_path do |f|
 
-  = f.label :username
-  = f.text_field :username
+    = f.label :username
+    = f.text_field :username
 
-  = f.label :password
-  = f.password_field :password
+    = f.label :password
+    = f.password_field :password
 
-  = f.submit
+    = f.submit "Login", class: "button radius"
 

@@ -1,9 +1,15 @@
 class MeetupsController < ApplicationController
 
+  include SessionsHelper
+
+  before_action :authenticate_user!, :except => [:cards]
+
+
   MEETUP_NOT_FOUND_ERROR = { :errors => "ERROR: Meetup not found." }
   MEETUP_UPDATE_ERROR = { :errors => "ERROR: Meetup update failed." }
 
   def cards
+    @marquee_text = "HELLLOOOOOOOOOOOOOOOO Important Updates goes HERE"
     Meetup.all_meetups
     @meetups = Meetup.order(schedule: :desc).last(8).reverse
   end
@@ -112,6 +118,10 @@ class MeetupsController < ApplicationController
   end
 
   private
+
+  def authenticate_user!
+    redirect_to login_path unless current_user
+  end
 
   def meetup_params
     params.require(:meetup).permit(:title, :organizer, :location, :img_url, :meetup_url, :description, :schedule, :attending, :event_type)
