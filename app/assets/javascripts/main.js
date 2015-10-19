@@ -2,6 +2,7 @@ $(document).ready(function(){
   console.log("Main JS ready");
   startTime();
   showDate();
+  datePicker();
 })
 
 
@@ -17,3 +18,7 @@ var check_event_row_end = function(idx){
    return '</div>'
   }
 }
+
+
+
+

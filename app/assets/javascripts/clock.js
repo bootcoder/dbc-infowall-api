@@ -31,3 +31,7 @@ var spaceDay = function(dateString){
   console.log(output);
   return output;
 }
+
+var datePicker = function(){
+  $('.date-picker').datetimepicker();
+}

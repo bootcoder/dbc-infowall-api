@@ -42,6 +42,6 @@
   .row
     .large-6.columns.large-centered.date-select
       = f.label "Event DateTime (why does it look so bad, idk)"
-      = f.datetime_select :schedule
+      = f.text_field :schedule, class: 'date-picker'
   .actions.large-centered.center
     = f.submit class: "button radius"

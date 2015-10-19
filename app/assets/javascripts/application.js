@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.datetimepicker.full.min
 //= require foundation
 //= require react
 //= require react_ujs
