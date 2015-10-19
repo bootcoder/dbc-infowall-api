@@ -23,13 +23,21 @@ var showDate = function(){
 
 var formatDate = function(date_input){
   var date = new Date(date_input).toDateString();
-  return date.substr(0, date.length-4)
+  var time = new Date(date_input).toTimeString();
+  var dateTime = date.substr(0, date.length-4) + time.substr(0, time.length-18)
+  return dateTime
 }
 
-var spaceDay = function(dateString){
-  var output = [dateString.slice(0, 3), "\n\r".html, dateString.slice(3)].join('');
-  console.log(output);
-  return output;
+var give_day = function(dateString){
+  return dateString.slice(0, 3)
+}
+
+var give_date = function(dateString){
+  return dateString.slice(4, 10);
+}
+
+var give_time = function(dateString){
+  return dateString.slice(11);
 }
 
 var datePicker = function(){

@@ -129,9 +129,13 @@ body#background {
 .date-text {
   /*margin-left: .5rem;*/
   /*margin-bottom: .6rem;*/
-  font-size: 1.2em;
-  text-align: center;
+  font-size: .6em;
+}
 
+.day-text {
+  /*margin-left: .5rem;*/
+  /*margin-bottom: .6rem;*/
+  font-size: .9em;
 }
 
 .organizer-text {
@@ -216,6 +220,10 @@ body#background {
 
 .no-margin {
   margin: 0;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0;
 }
 
 .mar-right-5P {
