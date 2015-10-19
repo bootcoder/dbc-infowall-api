@@ -28,16 +28,17 @@ var formatDate = function(date_input){
   return dateTime
 }
 
-var give_day = function(dateString){
+var giveDay = function(dateString){
   return dateString.slice(0, 3)
 }
 
-var give_date = function(dateString){
+var giveDate = function(dateString){
   return dateString.slice(4, 10);
 }
 
-var give_time = function(dateString){
-  return dateString.slice(11);
+var giveTime = function(dateString){
+
+  return dateString.slice(11,16);
 }
 
 var datePicker = function(){
