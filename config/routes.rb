@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :text_scrolls
   root 'meetups#cards'
 
   get  'login'  => 'sessions#new'

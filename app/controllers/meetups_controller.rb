@@ -9,7 +9,7 @@ class MeetupsController < ApplicationController
   MEETUP_UPDATE_ERROR = { :errors => "ERROR: Meetup update failed." }
 
   def cards
-    @marquee_text = "HELLLOOOOOOOOOOOOOOOO Important Updates goes HERE"
+    check_marquee
     Meetup.all_meetups
     @meetups = Meetup.order(schedule: :desc).last(8).reverse
   end
