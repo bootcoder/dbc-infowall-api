@@ -1,4 +1,11 @@
-FactoryGirl.define do  factory :text_scroll do
+FactoryGirl.define do  factory :marquee do
+    text ""
+text_color ""
+bg_color ""
+scroll_amount ""
+display_status "MyString"
+  end
+  factory :text_scroll do
     text ""
 text_color ""
 bg_color ""

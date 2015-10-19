@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Text:
+  = @marquee.text
+%p
+  %b Text color:
+  = @marquee.text_color
+%p
+  %b Bg color:
+  = @marquee.bg_color
+%p
+  %b Scroll amount:
+  = @marquee.scroll_amount
+%p
+  %b Display status:
+  = @marquee.display_status
+
+= link_to 'Edit', edit_marquee_path(@marquee)
+\|
+= link_to 'Back', marquees_path

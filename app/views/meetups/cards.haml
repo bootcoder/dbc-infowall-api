@@ -1,5 +1,5 @@
 = react_component 'CardContainer', {events: @meetups}
 
-- if @marquee_text
-  %marquee{bgcolor: 'white'}
-    = @marquee_text
+- if @marquee
+  %marquee{bgcolor: "#{@marquee.bg_color}"}
+    = @marquee.text

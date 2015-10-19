@@ -1,0 +1,25 @@
+= form_for @marquee do |f|
+  - if @marquee.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@marquee.errors.count, "error")} prohibited this marquee from being saved:"
+      %ul
+        - @marquee.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :text
+    = f.text_field :text
+  .field
+    = f.label :text_color
+    = f.text_field :text_color
+  .field
+    = f.label :bg_color
+    = f.text_field :bg_color
+  .field
+    = f.label :scroll_amount
+    = f.text_field :scroll_amount
+  .field
+    = f.label :display_status
+    = f.text_field :display_status
+  .actions
+    = f.submit 'Save'

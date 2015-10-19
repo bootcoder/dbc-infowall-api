@@ -1,12 +1,11 @@
-class CreateTextScrolls < ActiveRecord::Migration
+class CreateMarquees < ActiveRecord::Migration
   def change
-    create_table :text_scrolls do |t|
+    create_table :marquees do |t|
       t.string, :text
       t.string, :text_color
       t.string, :bg_color
+      t.integer, :scroll_amount
       t.string :display_status
-
-      t.integer :scroll_amount
 
       t.timestamps null: false
     end

@@ -1,0 +1,29 @@
+%h1 Listing marquees
+
+%table
+  %thead
+    %tr
+      %th Text
+      %th Text color
+      %th Bg color
+      %th Scroll amount
+      %th Display status
+      %th
+      %th
+      %th
+
+  %tbody
+    - @marquees.each do |marquee|
+      %tr
+        %td= marquee.text
+        %td= marquee.text_color
+        %td= marquee.bg_color
+        %td= marquee.scroll_amount
+        %td= marquee.display_status
+        %td= link_to 'Show', marquee
+        %td= link_to 'Edit', edit_marquee_path(marquee)
+        %td= link_to 'Destroy', marquee, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Marquee', new_marquee_path

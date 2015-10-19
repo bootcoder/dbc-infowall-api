@@ -50,7 +50,7 @@ end
 
 
 # HTC GEMSET
-gem 'haml'
+gem 'haml-rails'
 gem 'foundation-rails'
 gem 'rails_12factor'
 gem 'react-rails', '~> 1.3.0'
