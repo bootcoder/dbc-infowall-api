@@ -8,3 +8,7 @@
              event_type: "student",
              schedule: Faker::Date.forward(5))
 end
+
+a = User.new(username: 'hunter')
+a.password = 'hunter'
+a.save

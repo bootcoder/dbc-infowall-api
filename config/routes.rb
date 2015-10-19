@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'logout' => 'sessions#destroy'
 
   get 'meetups/cards' => 'meetups#cards'
+  get 'events/cards' => 'events#cards'
 
   resources :users
   resources :meetups

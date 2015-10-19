@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  include SessionsHelper
+
+  before_action :authenticate_user!, :except => [:cards]
+
+
   def index
     @users = User.all
   end
@@ -21,6 +26,11 @@ class UsersController < ApplicationController
   end
 
   private
+
+
+  def authenticate_user!
+    redirect_to login_path unless current_user
+  end
 
   def user_params
     params.require(:user).permit(:username,:password, :password_confirmation)

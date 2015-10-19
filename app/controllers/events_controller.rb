@@ -1,15 +1,20 @@
 class EventsController < ApplicationController
 
+  include SessionsHelper
+
+  before_action :authenticate_user!, :except => [:cards]
+
   EVENT_NOT_FOUND_ERROR = { :errors => "ERROR: Event not found." }
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
 
   def cards
+    @marquee = Marquee.where(display_status: 'active').first
     @events = Event.order(schedule: :desc).last(8).reverse
   end
 
 
   def index
-    @events = Event.order(:schedule).last(8)
+    @events = Event.order(schedule: :desc).reverse
     respond_to do |format|
       format.html { render :index }
       format.json { render json: @events }
@@ -59,7 +64,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     if @event.save
       respond_to do |format|
-        format.html { render :index }
+        format.html { redirect_to events_path }
         format.json { render json: @event }
       end
     else
@@ -75,7 +80,7 @@ class EventsController < ApplicationController
     if @event
       if @event.update_attributes(event_params)
         respond_to do |format|
-          format.html { render :index }
+          format.html { redirect_to events_path }
           format.json { render json: @events }
         end
       else
@@ -98,12 +103,12 @@ class EventsController < ApplicationController
       @event.destroy
       @events = Event.all
       respond_to do |format|
-        format.html { render :index }
+        format.html { redirect_to events_path }
         format.json { render json: @events }
       end
     else
       respond_to do |format|
-        format.html { render :index }
+        format.html { redirect_to events_path }
         format.json { render json: EVENT_NOT_FOUND_ERROR }
       end
     end
@@ -112,8 +117,12 @@ class EventsController < ApplicationController
 
   private
 
+  def authenticate_user!
+    redirect_to login_path unless current_user
+  end
+
   def event_params
-    params.require(:event).permit(:title, :organizer, :location, :img_url, :meetup_url, :description, :schedule)
+    params.require(:event).permit(:title, :organizer, :location, :img_url, :event_url, :description, :schedule, :attending, :event_type)
   end
 end
 

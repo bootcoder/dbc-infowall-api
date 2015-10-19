@@ -5,7 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :organizer
       t.string :location
       t.string :img_url
-      t.string :meetup_url
+      t.string :event_url
       t.string :attending
       t.string :event_type
 

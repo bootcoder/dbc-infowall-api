@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20151019022748) do
     t.string   "organizer"
     t.string   "location"
     t.string   "img_url"
-    t.string   "meetup_url"
+    t.string   "event_url"
     t.string   "attending"
     t.string   "event_type"
     t.text     "description"
@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20151019022748) do
     t.string   "text"
     t.string   "text_color",     default: "black"
     t.string   "bg_color",       default: "white"
-    t.integer  "scroll_amount",  default: 0
-    t.string   "display_status"
+    t.string   "display_status", default: "none"
+    t.integer  "scroll_amount",  default: 10
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
   end
