@@ -7,7 +7,7 @@ class CreateMarquees < ActiveRecord::Migration
       t.string :bg_color, default: "white"
       t.string :display_status, default: 'none'
 
-      t.integer :scroll_amount, default: 0
+      t.integer :scroll_amount, default: 10
 
       t.timestamps null: false
     end
