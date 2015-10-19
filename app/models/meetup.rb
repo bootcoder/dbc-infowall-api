@@ -31,15 +31,18 @@ class Meetup < ActiveRecord::Base
 
     @parsed.each do |meetup|
       ap meetup
-      Meetup.create(title: meetup["title"],
+      ap meetup["date"][0]
+      ap meetup["date"][1]
+      Time.zone = "Pacific Time (US & Canada)"
+      Meetup.create(title: meetup["title"]['text'],
            organizer: "Andrew Fitch",
            location: sanitize_location(meetup["location"]["text"]),
            img_url: "andrew.jpg",
            meetup_url: meetup["location"]["href"],
            description: sanitize_description(meetup["description"]['text']),
-           attending: meetup["attending"],
+           attending: meetup["attending"]['text'],
            event_type: "meetup",
-           schedule: DateTime.parse(meetup["date"][0] + " " + meetup["date"][1]))
+          schedule: Time.zone.parse(meetup["date"][0] + " " + meetup["date"][1])) #=> Fri, 08 Nov 2013 23:59:59 PST -08:00
     end
   end
 

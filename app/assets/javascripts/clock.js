@@ -27,9 +27,11 @@ var formatDate = function(date_input){
 }
 
 var formatDateTime = function(date_input){
+  console.log('date_input: ' + date_input);
   var date = new Date(date_input).toDateString();
   var time = new Date(date_input).toTimeString();
   var dateTime = date.substr(0, date.length-4) + time.substr(0, time.length-18)
+  console.log('date_output: '+date);
   return dateTime
 }
 

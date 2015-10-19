@@ -1,7 +1,7 @@
 var CardDate = React.createClass({
 
   render: function() {
-
+    console.log('prop'+this.props.event.schedule);
 
     return (
       <div className="small-3 no-pad-right large-3 columns black-text">
