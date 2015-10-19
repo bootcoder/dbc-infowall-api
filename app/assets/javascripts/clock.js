@@ -23,6 +23,11 @@ var showDate = function(){
 
 var formatDate = function(date_input){
   var date = new Date(date_input).toDateString();
+  return date.substr(0, date.length-4)
+}
+
+var formatDateTime = function(date_input){
+  var date = new Date(date_input).toDateString();
   var time = new Date(date_input).toTimeString();
   var dateTime = date.substr(0, date.length-4) + time.substr(0, time.length-18)
   return dateTime
