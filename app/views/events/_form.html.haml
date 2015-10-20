@@ -12,31 +12,31 @@
       .large-6.columns
         = f.label :title
         = f.text_field :title
-      .large-4.columns
+      .large-6.columns
         = f.label :organizer
-        = f.text_field :organizer, value: "Humperdink"
-      .large-2.columns
-        = f.label "Date:"
-        = f.text_field :schedule, class: 'date-picker'
+        = f.text_field :organizer, placeholder: "Humperdink"
   .row
     .large-12.columns.large-centered
-      .large-6.columns
+      .large-4.columns
         = f.label :event_type
-        = f.select :event_type, [['Internal', 'internal'],['Student', 'student'], ['Meetup', 'meetup']]
-      .large-6.columns
+        = f.select :event_type, [['Student (gray)', 'student'],['Meetup (teal)', 'meetup'],['Internal (yellow)', 'internal']]
+      .large-4.columns
         = f.label 'Staff Picture'
         = f.select :img_url, [['Andrew', 'andrew.jpg'], ['Anne', 'anne.jpg'], ['Julian', 'julian.jpg'], ['K T', 'kt.jpg'],["Hunter", 'hunter.JPG'], ['Jenny', 'jenny.jpg']]
+      .large-4.columns
+        = f.label "Date:"
+        = f.text_field :schedule, class: 'date-picker'
   .row
     .large-12.columns.large-centered
       .large-4.columns
         = f.label "Location: MAX 18 characters"
         = f.text_field :location, placeholder: "The Lodge"
-      .large-6.columns
+      .large-4.columns
         = f.label "Event URL:"
         = f.text_field :event_url, placeholder: " (enter random numbers if none)"
-      .large-2.columns
+      .large-4.columns
         = f.label "Number attending:"
-        = f.text_field :attending, placeholder: "Most likely 0"
+        = f.text_field :attending, placeholder: "Most likely 0", value: 0
   .row
     .large-12.columns.large-centered
       .large-12.columns
