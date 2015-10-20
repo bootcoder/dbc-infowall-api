@@ -1,6 +1,8 @@
 
 var renderReact = function(data){
-  React.render(<CardContainer events={data}/>, document.getElementById('content'));
+  if (data.length > 0){
+    React.render(<CardContainer events={data}/>, document.getElementById('content'));
+  }
 }
 
 var getEvents = function(){
