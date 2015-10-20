@@ -12,4 +12,18 @@ class Event < ActiveRecord::Base
   validates_presence_of :event_type
   validates_presence_of :schedule
 
+
+  def self.todays_cards
+  p "Made it --" * 30
+  @all = Meetup.all
+    @all += Event.all
+    @events = []
+    @all.each do |event|
+      if event.schedule.today?
+        event.event_type = 'today'
+        @events << event
+      end
+    end
+    @events
+  end
 end

@@ -17,15 +17,7 @@ class EventsController < ApplicationController
   end
 
   def all_cards_today
-    @all = Meetup.all
-    @all += Event.all
-    @events = []
-    @all.each do |event|
-      if event.schedule.today?
-        event.event_type = 'today'
-        @events << event
-      end
-    end
+    Event.todays_cards
     respond_to do |format|
       format.html { render :cards }
       format.json { render json: @events }
