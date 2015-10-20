@@ -14,7 +14,7 @@ class Event < ActiveRecord::Base
 
 
   def self.todays_cards
-  @all = Meetup.all
+    @all = Meetup.all
     @all += Event.all
     @events = []
     @all.each do |event|

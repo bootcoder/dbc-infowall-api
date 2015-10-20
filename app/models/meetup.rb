@@ -28,7 +28,6 @@ class Meetup < ActiveRecord::Base
   end
 
   def self.parse_meetups
-
     @parsed.each do |meetup|
       Time.zone = "Pacific Time (US & Canada)"
       Meetup.create(title: meetup["title"]['text'],
