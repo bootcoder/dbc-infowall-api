@@ -12,7 +12,10 @@ class MeetupsController < ApplicationController
     @marquee = Marquee.where(display_status: 'active').first
     Meetup.all_meetups
     @meetups = Meetup.order(schedule: :desc).last(8).reverse
-    ap @meetups
+    respond_to do |format|
+      format.html { render :cards }
+      format.json { render json: @meetups }
+    end
   end
 
   def index

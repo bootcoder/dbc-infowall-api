@@ -9,10 +9,13 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
 
     = csrf_meta_tags
-  %body#background{:onload => "setInterval(function() {window.location.reload();}, 512000);"}
+  %body#background
     = render "layouts/header"
     .wrapper
+      #content
       = yield
     .footer
       - if @marquee
         = render 'marquees/marquee_scroll', locals: {marquee: @marquee}
+
+-# {:onload => "setInterval(function() {window.location.reload();}, 512000);"}

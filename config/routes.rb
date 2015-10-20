@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'meetups#cards'
+  root 'events#all_cards_today'
 
   get  'login'  => 'sessions#new'
   post 'login' => 'sessions#create'
@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get  'logout' => 'sessions#destroy'
   post 'logout' => 'sessions#destroy'
 
-  get 'meetups/cards' => 'meetups#cards'
   get 'events/cards' => 'events#cards'
+  get 'cards' => 'events#all_cards_today'
+  get 'meetups/cards' => 'meetups#cards'
 
   resources :users
   resources :meetups

@@ -3,6 +3,7 @@ $(document).ready(function(){
   startTime();
   showDate();
   datePicker();
+  getCardsIf(0);
 })
 
 

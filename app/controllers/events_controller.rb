@@ -10,6 +10,24 @@ class EventsController < ApplicationController
   def cards
     @marquee = Marquee.where(display_status: 'active').first
     @events = Event.order(schedule: :desc).last(8).reverse
+    respond_to do |format|
+      format.html { render :cards }
+      format.json { render json: @events }
+    end
+  end
+
+  def all_cards_today
+    @all = Meetup.all
+    @all += Event.all
+    @events = []
+    @all.each do |event|
+      ap event
+      @events << event if event.schedule.today?
+    end
+    respond_to do |format|
+      format.html { render :cards }
+      format.json { render json: @events }
+    end
   end
 
 
