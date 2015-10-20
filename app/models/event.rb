@@ -14,7 +14,6 @@ class Event < ActiveRecord::Base
 
 
   def self.todays_cards
-  p "Made it --" * 30
   @all = Meetup.all
     @all += Event.all
     @events = []
@@ -24,6 +23,9 @@ class Event < ActiveRecord::Base
         @events << event
       end
     end
+    p "%" * 55
+    ap @events
+    p "%" * 55
     @events
   end
 end

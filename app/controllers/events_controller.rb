@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def all_cards_today
-    Event.todays_cards
+    @events = Event.todays_cards
     respond_to do |format|
       format.html { render :cards }
       format.json { render json: @events }
