@@ -15,6 +15,6 @@
 # Host on DBC
 # Rotating Views
 # Today Card View
-
+# Add option for recurring cards #PRIORITY
 
 # if not 8 cards load yoda cards
