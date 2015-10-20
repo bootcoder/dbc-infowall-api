@@ -1,6 +1,6 @@
 
 var renderReact = function(data){
-  if (data.length > 0){
+  if (data){
     React.render(<CardContainer events={data}/>, document.getElementById('content'));
   }
 }
@@ -48,6 +48,6 @@ var getCardsIf = function(counter){
   } else if (window.location.pathname === "/meetups/cards"){
     getMeetups();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
-    setTimeout(function(){ cycleCardView(counter); }, 5000);
+    setTimeout(function(){ cycleCardView(counter); }, 10000);
   }
 }
