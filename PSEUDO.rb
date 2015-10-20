@@ -12,24 +12,6 @@
 
 
 
-
-
-# COMPONENTS
-
-# Meetup Card View
-
-# Title
-# card holder
-# card
-
-
-
-
-
-
-# STAFF Card View
-
-
-
-# Image Slide View
-
+# Host on DBC
+# Rotating Views
+# Today Card View
