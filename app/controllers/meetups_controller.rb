@@ -68,6 +68,8 @@ class MeetupsController < ApplicationController
 
   def create
     @meetup = Meetup.new(meetup_params)
+    Time.zone = "Pacific Time (US & Canada)"
+    @meetup.schedule = Time.zone.parse(meetup_params['schedule'])
     if @meetup.save
       respond_to do |format|
         format.html { redirect_to meetups_path }
@@ -85,6 +87,8 @@ class MeetupsController < ApplicationController
     @meetup = Meetup.find_by_id(params[:id])
     if @meetup
       if @meetup.update_attributes(meetup_params)
+        Time.zone = "Pacific Time (US & Canada)"
+        @meetup.update_attributes(schedule: Time.zone.parse(meetup_params['schedule']))
         respond_to do |format|
           format.html { redirect_to meetups_path }
           format.json { render json: @meetups }

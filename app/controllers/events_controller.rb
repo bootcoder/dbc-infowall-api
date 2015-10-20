@@ -80,6 +80,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    Time.zone = "Pacific Time (US & Canada)"
+    @event.schedule = Time.zone.parse(event_params['schedule'])
     if @event.save
       respond_to do |format|
         format.html { redirect_to events_path }
@@ -97,6 +99,8 @@ class EventsController < ApplicationController
     @event = Event.find_by_id(params[:id])
     if @event
       if @event.update_attributes(event_params)
+        Time.zone = "Pacific Time (US & Canada)"
+        @event.update_attributes(schedule: Time.zone.parse(event_params['schedule']))
         respond_to do |format|
           format.html { redirect_to events_path }
           format.json { render json: @events }
