@@ -21,8 +21,10 @@ class EventsController < ApplicationController
     @all += Event.all
     @events = []
     @all.each do |event|
-      ap event
-      @events << event if event.schedule.today?
+      if event.schedule.today?
+        event.event_type = 'today'
+        @events << event
+      end
     end
     respond_to do |format|
       format.html { render :cards }
