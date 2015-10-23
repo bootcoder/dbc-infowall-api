@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   include SessionsHelper
 
-  before_action :authenticate_user!, :except => [:cards]
+  before_action :authenticate_user!, :except => [:cards, :all_cards_today]
 
   EVENT_NOT_FOUND_ERROR = { :errors => "ERROR: Event not found." }
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
