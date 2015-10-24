@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'events#all_cards_today'
 
   get "auth/:provider/callback" => 'sessions#auth', as: :auth
+  get "auth/failure" => 'sessions#auth_fail'
 
   get  'login'  => 'sessions#new'
   post 'login' => 'sessions#create'

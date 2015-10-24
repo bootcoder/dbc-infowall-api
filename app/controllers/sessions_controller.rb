@@ -6,6 +6,11 @@ class SessionsController < ApplicationController
     p "% " * 200
   end
 
+  def auth_fail
+    p "! " * 75
+    p params
+  end
+
   def new
     @user = User.new
     render :new
