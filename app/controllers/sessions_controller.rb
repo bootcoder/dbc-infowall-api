@@ -1,5 +1,11 @@
 class SessionsController < ApplicationController
 
+  def auth
+    p "% " * 200
+    p @auth = request.env['omniauth.auth']['credentials']
+    p "% " * 200
+  end
+
   def new
     @user = User.new
     render :new
