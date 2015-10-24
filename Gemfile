@@ -61,4 +61,5 @@ gem 'awesome_print'
 # gem 'client_side_validations'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
+gem 'dotenv'
 
