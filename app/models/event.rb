@@ -23,9 +23,6 @@ class Event < ActiveRecord::Base
         @events << event
       end
     end
-    p "%" * 55
-    ap @events
-    p "%" * 55
     @events
   end
 end

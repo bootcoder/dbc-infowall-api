@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   include SessionsHelper
 
-  before_action :authenticate_user!, :except => [:cards, :all_cards_today]
+  # before_action :authenticate_user!, :except => [:cards, :all_cards_today]
 
   EVENT_NOT_FOUND_ERROR = { :errors => "ERROR: Event not found." }
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
@@ -25,7 +25,6 @@ class EventsController < ApplicationController
   end
 
   def duplicate_card
-    p params
     @event = Event.find_by_id(params[:format])
     render :edit
   end
@@ -79,7 +78,6 @@ class EventsController < ApplicationController
   end
 
   def create
-    p "&" * 90
     @event = Event.new(event_params)
     Time.zone = "Pacific Time (US & Canada)"
     @event.schedule = Time.zone.parse(event_params['schedule'])
@@ -98,9 +96,6 @@ class EventsController < ApplicationController
 
   def update
     return self.create if params[:commit] == 'duplicate'
-    p "*" * 75
-    p params
-    p "*" * 75
     @event = Event.find_by_id(params[:id])
     if @event
       if @event.update_attributes(event_params)
