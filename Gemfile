@@ -59,7 +59,7 @@ gem 'rest-client'
 gem 'faker'
 gem 'awesome_print'
 # gem 'client_side_validations'
-gem 'omniauth'
+gem 'omniauth', '~> 1.2.2'
 gem 'omniauth-google-oauth2'
 gem 'dotenv'
 

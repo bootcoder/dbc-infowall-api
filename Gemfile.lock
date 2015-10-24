@@ -260,7 +260,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
-  omniauth
+  omniauth (~> 1.2.2)
   omniauth-google-oauth2
   pg
   rails (= 4.2.1)
