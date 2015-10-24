@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get  'logout' => 'sessions#destroy'
   post 'logout' => 'sessions#destroy'
 
+  get 'events/duplicate_card' => 'events#duplicate_card'
+
   get 'events/cards' => 'events#cards'
   get 'cards' => 'events#all_cards_today'
   get 'meetups/cards' => 'meetups#cards'

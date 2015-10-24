@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
 
-  validates_uniqueness_of :event_url
+  # validates_uniqueness_of :event_url
 
   validates :location, length: { maximum: 18}
 

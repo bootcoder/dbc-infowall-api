@@ -12,7 +12,7 @@
         %th Event type
         %th Descrption
         %th Schedule
-        %th{:colspan => "3"}
+        %th{:colspan => "4"}
     %tbody
       - @events.each do |event|
         %tr
@@ -25,7 +25,8 @@
           %td= event.event_type
           %td= event.description
           %td= event.schedule.to_formatted_s(:short)
-          %td= link_to 'Show', event
+          %td= link_to 'View', event
+          %td= link_to 'Duplicate', events_duplicate_card_path(event)
           %td= link_to 'Edit', edit_event_path(event)
           %td= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' }
   = render 'layouts/nav'
