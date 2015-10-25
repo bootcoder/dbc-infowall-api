@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
 
   def auth_fail
     p "! " * 75
-    p params
+    @params = params
+    render :fail
   end
 
   def new
