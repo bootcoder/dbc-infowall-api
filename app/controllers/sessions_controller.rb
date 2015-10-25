@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
     p "% " * 200
     p @auth = request.env['omniauth.auth']['credentials']
     p "% " * 200
+    render :auth
   end
 
   def auth_fail
