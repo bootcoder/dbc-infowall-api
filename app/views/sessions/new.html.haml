@@ -7,13 +7,17 @@
       = flash[:invalid_login]
 
   = form_for :session, :url => login_path do |f|
-
-    = f.label :username
-    = f.text_field :username
-
-    = f.label :password
-    = f.password_field :password
-
-    = f.submit "Login", class: "button radius"
-    = link_to 'AUTH', '/auth/google_oauth2', class: 'button radius alert width-200px'
+    .row
+      .large-3.columns
+        = f.label :username
+        = f.text_field :username
+      .large-3.columns.left
+        = f.label :password
+        = f.password_field :password
+    .row
+      .large-12.columns.large-centered
+        .button-group.round.pad-bottom-15px
+          = f.submit "Login", class: "button radius width-200px"
+          = link_to 'Google oAuth', '/auth/google_oauth2', class: 'button radius alert width-200px'
+          = link_to 'Slide Show', events_cards_path, class: 'button radius success width-200px'
 

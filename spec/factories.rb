@@ -1,4 +1,9 @@
-FactoryGirl.define do  factory :marquee do
+FactoryGirl.define do  factory :token do
+    access_token "MyString"
+refresh_token "MyString"
+expires_at "2015-10-25 20:25:00"
+  end
+  factory :marquee do
     text ""
 text_color ""
 bg_color ""
