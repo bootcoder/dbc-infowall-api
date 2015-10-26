@@ -4,11 +4,15 @@ class SessionsController < ApplicationController
     p "% " * 200
     p @auth = request.env['omniauth.auth']['credentials']
     p "% " * 200
+    Token.create(
+      access_token: @auth['token'],
+      refresh_token: @auth['refresh_token'],
+      expires_at: Time.at(@auth['expires_at']).to_datetime)
     render :auth
   end
 
   def auth_fail
-    p "! " * 75
+    p "! @ % " * 30
     @params = params
     render :fail
   end
