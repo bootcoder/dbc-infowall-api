@@ -22,5 +22,5 @@ Rails.application.routes.draw do
   resources :events
   resources :slides
   resources :marquees
-
+  resources :calendars
 end
