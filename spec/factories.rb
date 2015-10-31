@@ -1,4 +1,7 @@
-FactoryGirl.define do  factory :token do
+FactoryGirl.define do  factory :calendar do
+    
+  end
+  factory :token do
     access_token "MyString"
 refresh_token "MyString"
 expires_at "2015-10-25 20:25:00"
