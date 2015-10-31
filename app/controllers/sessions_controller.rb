@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def auth
+    @auth = request.env['omniauth.auth']['credentials']
     Token.create(
       access_token: @auth['token'],
       refresh_token: @auth['refresh_token'],
