@@ -7,11 +7,11 @@ class CalendarsController < ApplicationController
     p "% " * 200
     ap @calendar.cal
     p "% " * 200
-    p @calendar.test
-    p @calendar.event
-    p @calendar.find_event
+    ap @calendar.test
+    # p @calendar.event
+    # p @calendar.find_event
     p "- " * 200
-    p @calendar.all_events
+    @calendar.import_events
     p "- " * 200
   end
 end
