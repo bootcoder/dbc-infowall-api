@@ -74,9 +74,9 @@ class Calendar
 
     calendar_login
     all_events.each do |event|
+      ap event
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
       # byebug
-      p event_datetime > Date.current
       if event_datetime > Date.current
         @event = Event.create(
                         title: event.title,
