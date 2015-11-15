@@ -16,10 +16,10 @@ class Calendar
                                :calendar      => ENV['MENTOR_CALENDAR_ID'],
                                :redirect_url  => "https://dbc-infowall.herokuapp.com/auth/google_oath2/@callback" # this is what Google uses for 'applications'
                                )
-    p "cal " * 10
-    ap @calendar
-    p "cal " * 10
     @cal.login_with_refresh_token(@token.fresh_token)
+    p "cal " * 10
+    ap @cal
+    p "cal " * 10
     @cal
   end
 
@@ -43,7 +43,7 @@ class Calendar
   end
 
   def all_events
-    @cal.events
+    @cal.find_future_events
   end
 
   def get_img_url(staff_name)
@@ -71,22 +71,27 @@ class Calendar
   end
 
   def import_events
+
     calendar_login
     all_events.each do |event|
-      # byebugx
-      @event = Event.create(
-                      title: event.title,
-                      description: event.description,
-                      organizer: event.creator_name,
-                      location: event.location,
-                      img_url: get_img_url(event.creator_name),
-                      event_type: "calendar",
-                      attending: 0,
-                      schedule: DateTime.parse(event.raw['start']['dateTime'])
-                      )
-      ap @event
-      ap @event.errors
-      @event
+      event_datetime = DateTime.parse(event.raw['start']['dateTime'])
+      # byebug
+      p event_datetime > Date.current
+      if event_datetime > Date.current
+        @event = Event.create(
+                        title: event.title,
+                        description: event.description,
+                        organizer: event.creator_name,
+                        location: event.location,
+                        img_url: get_img_url(event.creator_name),
+                        event_type: "calendar",
+                        attending: 0,
+                        schedule: DateTime.parse(event.raw['start']['dateTime'])
+                        )
+        ap @event
+        ap @event.errors
+        @event
+      end
     end
   end
 

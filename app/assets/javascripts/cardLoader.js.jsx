@@ -20,7 +20,6 @@ var getMeetups = function(){
 
 var getToday = function(){
   $.get( "/cards.json", function( data ) {
-    console.log(data);
     renderReact(data);
   });
 }
