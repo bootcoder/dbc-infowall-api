@@ -1,12 +1,13 @@
+
 .row
   .large-12.columns.sb-dark.white-text
     - @calendar_events.each do |event|
-      = "*" * 50
-      = event
-      = "*" * 50
-      = event.title
-      = event.location
-      = "*" * 50
+      %h2
+        = event
+      %h4
+        = event.title
+      %p
+        = event.location
 .row
   .large-8.columns
     = @calendar.cal.events
