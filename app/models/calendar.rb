@@ -10,7 +10,7 @@ class Calendar
     @token = token
   end
 
-  def test
+  def calendar_login
     @cal = Google::Calendar.new(:client_id => ENV['CLIENT_ID'],
                                :client_secret => ENV['CLIENT_SECRET'],
                                :calendar      => ENV['MENTOR_CALENDAR_ID'],
@@ -71,8 +71,9 @@ class Calendar
   end
 
   def import_events
+    calendar_login
     all_events.each do |event|
-      # byebug
+      # byebugx
       @event = Event.create(
                       title: event.title,
                       description: event.description,
