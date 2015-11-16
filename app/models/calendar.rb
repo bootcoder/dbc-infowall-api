@@ -43,7 +43,8 @@ class Calendar
     @cal.find_future_events
   end
 
-  def get_img_url(staff_name)
+  def get_img_url(staff_name, event)
+    staff_name = clean_name_yoga(staff_name, event)
     first_name = staff_name.split(" ")[0].capitalize
     p ": " * 75
     ap first_name
@@ -67,27 +68,31 @@ class Calendar
    staff_pics.fetch(first_name, "dbc.jpg")
   end
 
-  def import_events
+  def clean_name_yoga(name, event)
+    return "Katy" if event.title.include?('Yoga')
+    name
+  end
 
+  def import_events
     calendar_login
     all_events.each do |event|
-      ap event
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
+      # ap event
       # byebug
       if event_datetime > Date.current
         @event = Event.create(
                         calendar_id: event.id,
                         title: event.title,
                         description: event.description,
-                        organizer: event.creator_name,
+                        organizer: clean_name_yoga(event.creator_name, event),
                         location: event.location,
-                        img_url: get_img_url(event.creator_name),
+                        img_url: get_img_url(event.creator_name, event),
                         event_type: "calendar",
                         attending: 0,
                         schedule: DateTime.parse(event.raw['start']['dateTime'])
                         )
-        ap @event
-        ap @event.errors
+        # ap @event
+        # ap @event.errors
         @event
       end
     end
