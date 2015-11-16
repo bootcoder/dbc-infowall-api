@@ -24,6 +24,12 @@ var getToday = function(){
   });
 }
 
+var getCalendar = function(){
+  $.get( "/calendars.json", function( data ) {
+    renderReact(data);
+  });
+}
+
 var cycleCardView = function(counter){
   console.log(counter);
   if (counter === 0) {
@@ -35,8 +41,12 @@ var cycleCardView = function(counter){
     getEvents();
     getCardsIf(counter);
   } else if (counter === 2) {
-    counter = 0;
+    counter += 1;
     getToday();
+    getCardsIf(counter);
+  } else if (counter === 3) {
+    counter = 0;
+    getCalendar();
     getCardsIf(counter);
   }
 }
@@ -47,6 +57,6 @@ var getCardsIf = function(counter){
   } else if (window.location.pathname === "/meetups/cards"){
     getMeetups();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
-    setTimeout(function(){ cycleCardView(counter); }, 35000);
+    setTimeout(function(){ cycleCardView(counter); }, 5000);
   }
 }

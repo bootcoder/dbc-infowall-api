@@ -13,13 +13,10 @@ class Calendar
   def calendar_login
     @cal = Google::Calendar.new(:client_id => ENV['CLIENT_ID'],
                                :client_secret => ENV['CLIENT_SECRET'],
-                               :calendar      => ENV['MENTOR_CALENDAR_ID'],
-                               :redirect_url  => "https://dbc-infowall.herokuapp.com/auth/google_oath2/@callback" # this is what Google uses for 'applications'
+                               :calendar      => ENV['INFOWALL_CALENDAR_ID'],
+                               :redirect_url  => "https://dbc-infowall.herokuapp.com/auth/google_oath2/@callback"
                                )
     @cal.login_with_refresh_token(@token.fresh_token)
-    p "cal " * 10
-    ap @cal
-    p "cal " * 10
     @cal
   end
 
@@ -36,7 +33,7 @@ class Calendar
   def find_event
     @event = @cal.find_or_create_event_by_id(@event.id) do |e|
       e.title = 'An Updated Cool Event'
-      e.end_time = Time.now + (60 * 60 * 2) # seconds * min * hours
+      e.start_time = Time.now + (60 * 60 * 2) # seconds * min * hours
     end
 
     @event
@@ -79,6 +76,7 @@ class Calendar
       # byebug
       if event_datetime > Date.current
         @event = Event.create(
+                        calendar_id: event.id,
                         title: event.title,
                         description: event.description,
                         organizer: event.creator_name,

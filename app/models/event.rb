@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 
   default_scope { where("schedule between ? and ?", Date.current, 10.days.from_now) }
 
-  # validates_uniqueness_of :event_url
+  validates_uniqueness_of :calendar_id
   # validates_presence_of :description
 
   validates :location, length: { maximum: 18}
