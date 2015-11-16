@@ -35,7 +35,6 @@ class Calendar
       e.title = 'An Updated Cool Event'
       e.start_time = Time.now + (60 * 60 * 2) # seconds * min * hours
     end
-
     @event
   end
 
@@ -69,7 +68,7 @@ class Calendar
   end
 
   def clean_name_yoga(name, event)
-    return "Katy" if event.title.include?('Yoga')
+    return "Katy" if event.title.downcase.include?('yoga')
     name
   end
 
