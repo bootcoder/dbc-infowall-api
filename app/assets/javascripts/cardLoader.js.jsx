@@ -34,17 +34,9 @@ var cycleCardView = function(counter){
   console.log(counter);
   if (counter === 0) {
     counter += 1;
-    getMeetups();
-    getCardsIf(counter);
-  } else if (counter === 1) {
-    counter += 1;
-    getEvents();
-    getCardsIf(counter);
-  } else if (counter === 2) {
-    counter += 1;
     getToday();
     getCardsIf(counter);
-  } else if (counter === 3) {
+  } else if (counter === 1) {
     counter = 0;
     getCalendar();
     getCardsIf(counter);
