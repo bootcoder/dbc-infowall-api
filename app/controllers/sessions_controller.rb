@@ -1,9 +1,7 @@
 class SessionsController < ApplicationController
 
   def auth
-    p "% " * 200
-    p @auth = request.env['omniauth.auth']['credentials']
-    p "% " * 200
+    @auth = request.env['omniauth.auth']['credentials']
     Token.create(
       access_token: @auth['token'],
       refresh_token: @auth['refresh_token'],

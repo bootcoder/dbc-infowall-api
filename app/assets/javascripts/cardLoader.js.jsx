@@ -20,7 +20,12 @@ var getMeetups = function(){
 
 var getToday = function(){
   $.get( "/cards.json", function( data ) {
-    console.log(data);
+    renderReact(data);
+  });
+}
+
+var getCalendar = function(){
+  $.get( "/calendars.json", function( data ) {
     renderReact(data);
   });
 }
@@ -29,15 +34,11 @@ var cycleCardView = function(counter){
   console.log(counter);
   if (counter === 0) {
     counter += 1;
-    getMeetups();
+    getToday();
     getCardsIf(counter);
   } else if (counter === 1) {
-    counter += 1;
-    getEvents();
-    getCardsIf(counter);
-  } else if (counter === 2) {
     counter = 0;
-    getToday();
+    getCalendar();
     getCardsIf(counter);
   }
 }

@@ -1,5 +1,7 @@
 class Meetup < ActiveRecord::Base
 
+  default_scope { where("schedule between ? and ?", Date.current, 10.days.from_now) }
+
   validates_uniqueness_of :meetup_url
   validates :location, length: { maximum: 18}
 
