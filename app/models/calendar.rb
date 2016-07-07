@@ -22,12 +22,12 @@ class Calendar
 
   def event
     # @event = @cal.create_event
-    @event = @cal.create_event do |e|
-      e.title = 'A Cool Event'
-      e.start_time = Time.now
-      e.end_time = Time.now + (60 * 60) # seconds * min
-    end
-    @event.save
+    # @event = @cal.create_event do |e|
+    #   e.title = 'A Cool Event'
+    #   e.start_time = Time.now
+    #   e.end_time = Time.now + (60 * 60) # seconds * min
+    # end
+    # @event.save
   end
 
   def find_event

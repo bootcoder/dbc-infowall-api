@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'cards' => 'events#all_cards_today'
   get 'meetups/cards' => 'meetups#cards'
 
+  get 'mentors' => 'mentors#index'
+
   resources :users
   resources :meetups
   resources :events

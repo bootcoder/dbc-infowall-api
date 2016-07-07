@@ -3,9 +3,9 @@ $(document).ready(function(){
   startTime();
   showDate();
   datePicker();
+  getToday();
   getCardsIf(0);
 })
-
 
 var check_event_row_div = function(idx){
   if ((index % 3) == 0) {

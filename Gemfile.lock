@@ -106,6 +106,9 @@ GEM
       ruby_parser (~> 3.5)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
+    httparty (0.13.1)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     insensitive_hash (0.3.3)
     jbuilder (2.3.2)
@@ -274,6 +277,7 @@ DEPENDENCIES
   foundation-rails
   google_calendar
   haml-rails
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   omniauth (~> 1.2.2)

@@ -11,7 +11,6 @@ var getEvents = function(){
   });
 }
 
-
 var getMeetups = function(){
   $.get( "/meetups/cards.json", function( data ) {
     renderReact(data);
@@ -19,6 +18,7 @@ var getMeetups = function(){
 }
 
 var getMentors = function(){
+  console.log("in getMentors")
   $.get( "/mentors.json", function( data ) {
     renderReact(data);
   });
@@ -58,6 +58,8 @@ var getCardsIf = function(counter){
     getEvents();
   } else if (window.location.pathname === "/meetups/cards"){
     getMeetups();
+  } else if (window.location.pathname === "/mentors"){
+    getMentors();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
     setTimeout(function(){ cycleCardView(counter); }, 10000);
   }
