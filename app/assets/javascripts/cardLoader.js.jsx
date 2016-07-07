@@ -18,6 +18,12 @@ var getMeetups = function(){
   });
 }
 
+var getMentors = function(){
+  $.get( "/mentors.json", function( data ) {
+    renderReact(data);
+  });
+}
+
 var getToday = function(){
   $.get( "/cards.json", function( data ) {
     renderReact(data);
@@ -37,6 +43,10 @@ var cycleCardView = function(counter){
     getToday();
     getCardsIf(counter);
   } else if (counter === 1) {
+    counter += 1;
+    getMentors();
+    getCardsIf(counter);
+  } else if (counter === 2) {
     counter = 0;
     getCalendar();
     getCardsIf(counter);
@@ -49,6 +59,6 @@ var getCardsIf = function(counter){
   } else if (window.location.pathname === "/meetups/cards"){
     getMeetups();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
-    setTimeout(function(){ cycleCardView(counter); }, 35000);
+    setTimeout(function(){ cycleCardView(counter); }, 10000);
   }
 }
