@@ -1,4 +1,4 @@
-var CardDesc = React.createClass({
+var EventCardDesc = React.createClass({
 
   render: function() {
     return (

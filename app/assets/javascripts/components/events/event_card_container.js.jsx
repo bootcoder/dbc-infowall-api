@@ -1,4 +1,4 @@
-var CardContainer = React.createClass({
+var EventCardContainer = React.createClass({
   getInitialState: function(){
     return { events: this.props.events }
   },
@@ -7,7 +7,7 @@ var CardContainer = React.createClass({
     return (
       <div className=''>
       {events.map(function(event, index){
-        return ( <Card key={event.id} event={event} /> )
+        return ( <EventCard key={event.id} event={event} /> )
       })}
       </div>
     )

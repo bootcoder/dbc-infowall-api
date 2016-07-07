@@ -1,4 +1,4 @@
-var CardDate = React.createClass({
+var EventCardDate = React.createClass({
 
   render: function() {
     return (

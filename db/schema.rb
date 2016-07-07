@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160328224045) do
+ActiveRecord::Schema.define(version: 20160328223626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,18 +61,11 @@ ActiveRecord::Schema.define(version: 20160328224045) do
   end
 
   create_table "mentors", force: :cascade do |t|
-    t.string   "title"
-    t.string   "organizer"
-    t.string   "location"
+    t.string   "name"
     t.string   "img_url"
-    t.string   "event_url"
-    t.string   "attending"
-    t.string   "event_type"
-    t.text     "description"
-    t.datetime "schedule"
+    t.string   "phase"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "calendar_id"
   end
 
   create_table "slides", force: :cascade do |t|

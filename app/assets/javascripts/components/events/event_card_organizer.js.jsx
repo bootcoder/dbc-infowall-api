@@ -1,4 +1,4 @@
-var CardOrganizer = React.createClass({
+var EventCardOrganizer = React.createClass({
 
   render: function() {
     return (

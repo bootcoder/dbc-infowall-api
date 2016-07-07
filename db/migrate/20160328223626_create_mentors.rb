@@ -1,17 +1,11 @@
 class CreateMentors < ActiveRecord::Migration
   def change
     create_table :mentors do |t|
-      t.string :title
-      t.string :organizer
-      t.string :location
+
+      t.string :name
       t.string :img_url
-      t.string :event_url
-      t.string :attending
-      t.string :event_type
+      t.string :phase
 
-      t.text :description
-
-      t.datetime :schedule
       t.timestamps
     end
   end

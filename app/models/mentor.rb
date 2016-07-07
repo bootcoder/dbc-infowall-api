@@ -4,11 +4,10 @@ class Mentor < ActiveRecord::Base
     results = []
     deputy_array.each do |mentor|
       p "•" * 50
-      results << {
-      name: mentor["_DPMetaData"]["EmployeeInfo"]["DisplayName"],
-      img_url: mentor["_DPMetaData"]["EmployeeInfo"]["Photo"],
-      phase: mentor["_DPMetaData"]["OperationalUnitInfo"]["OperationalUnitName"]
-    }
+      results << Mentor.create(
+        name: mentor["_DPMetaData"]["EmployeeInfo"]["DisplayName"],
+        img_url: mentor["_DPMetaData"]["EmployeeInfo"]["Photo"],
+        phase: mentor["_DPMetaData"]["OperationalUnitInfo"]["OperationalUnitName"])
     end
     results
   end

@@ -1,4 +1,4 @@
-var CardTitle = React.createClass({
+var EventCardTitle = React.createClass({
 
   render: function() {
     return (

@@ -3,7 +3,8 @@ $(document).ready(function(){
   startTime();
   showDate();
   datePicker();
-  getToday();
+  // getCalendar();
+  getMentors();
   getCardsIf(0);
 })
 
