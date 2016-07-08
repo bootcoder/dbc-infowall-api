@@ -2,8 +2,8 @@ var PersonCardImage = React.createClass({
 
   render: function() {
     return (
-      <div className="small-10 large-10">
-        <img src={this.props.person.img_url} className ="circle-60px right fullWidth" />
+      <div className="small-12 large-12 columns center">
+        <img src={this.props.person.img_url} className ="circle-175px" />
       </div>
     );
   }

@@ -1,7 +1,16 @@
-/** {
-  outline: 1px solid blue;
+// Debugger
+
+
+// * {
+//   outline: 1px solid blue;
+// }
+
+
+.bugger {
+  outling: 1px solid red;
 }
-*/
+
+
 * {
 margin: 0;
 }
@@ -22,7 +31,9 @@ height: 4em;
 }
 
 body#background {
-  background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;
+  // background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;
+  background:url(image_path("painted-ladies.jpg")) fixed;
+  background:url(image_path("zen.jpg")) fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -41,12 +52,41 @@ body#background {
   background-image: url(image-path("sb-dark-shapes.png")) !important;
 }
 
+.sb-light {
+  background-image: url(image-path("sb-beige.png"));
+}
+
+.sb-blue {
+  background-image: url(image-path("sb-blu2.png"));
+}
+
+.sb-pentagon {
+  background-image: url(image-path("sb-pentagon.png"));
+}
+
+.bg-blue {
+  background-color: #5852E6 ;
+}
+
+.bg-green {
+  background-color: #4DAFA2;
+}
+
+.bg-orange {
+  background-color: #FFB064;
+  // background-color: #AA6D39;
+}
+
 .bg-yellow {
   background-color: yellow;
 }
 
 .bg-light-green {
   background-color: #2fe073;
+}
+
+.bg-light-pink {
+  background-color: #FD849E;
 }
 
 .bg-red {
@@ -57,14 +97,9 @@ body#background {
   background-color: white;
 }
 
-.bugger {
-  outling: 1px solid red;
-}
-
 .bold {
   font-weight: bold;
 }
-
 
 .logo-image {
   padding-top: 2%;
@@ -73,6 +108,9 @@ body#background {
   height: 2.5em;
 }
 
+.green-text{
+  color: #B0D69A;
+}
 
 .white-text {
   color: white;
@@ -88,10 +126,6 @@ body#background {
 
 .margin-1 {
   margin: 1%;
-}
-
-.sb-light {
-  background-image: url(image-path("sb-beige.png"));
 }
 
 .bg-gray {
@@ -117,6 +151,10 @@ body#background {
   height: 300px;
 }
 
+.height-30px {
+  height: 30px;
+}
+
 .height-50px {
   height: 50px;
 }
@@ -125,10 +163,9 @@ body#background {
   height: 60px;
 }
 
-.height-30px {
-  height: 30px;
+.height-75px {
+  height: 75px;
 }
-
 
 .text-half {
   font-size: .5em;
@@ -176,11 +213,13 @@ body#background {
   font-size: 1em;
 }
 
+.person-text {
+  font-size: 1.5em;
+}
+
 .center {
   text-align: center;
 }
-
-
 
 .fullWidth {
    width: 100%;
@@ -260,6 +299,10 @@ body#background {
 
 .pad-top-5P {
   padding-top: 5%;
+}
+
+.pad-top-1P {
+  padding-top: 1.4%;
 }
 
 .pad-top-10P {
@@ -362,6 +405,19 @@ body#background {
   border-radius: 50% 50% 50% 50%;
   height: 60px;
   width: 60px;
+}
+
+.circle-150px {
+  border-radius: 50% 50% 50% 50%;
+  height: 150px;
+  width: 150px;
+}
+
+
+.circle-175px {
+  border-radius: 50% 50% 50% 50%;
+  height: 175px;
+  width: 175px;
 }
 
 .width-100px {
