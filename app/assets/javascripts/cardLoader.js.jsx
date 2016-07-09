@@ -1,37 +1,36 @@
 
 var renderReactEvents = function(data){
-  if (data.length > 0){
     React.render(<EventCardContainer events={data}/>, document.getElementById('content'));
-  }
 }
 
 var renderReactPeople = function(data){
-  if (data.length > 0){
-    React.render(<PersonCardContainer people={data}/>, document.getElementById('content'));
-  }
+  React.render(<PersonCardContainer people={data}/>, document.getElementById('content'));
 }
 
 var getEvents = function(){
   $.get( "/events/cards.json", function( data ) {
+    if(data === undefined || data.length == 0){ return getCalendar(); };
     renderReactEvents(data);
   });
 }
 
 var getMeetups = function(){
   $.get( "/meetups/cards.json", function( data ) {
+    if(data === undefined || data.length == 0){ return getCalendar(); };
     renderReactEvents(data);
   });
 }
 
 var getMentors = function(){
-  console.log("in getMentors")
   $.get( "/mentors.json", function( data ) {
+    if(data === undefined || data.length == 0){ return getCalendar(); };
     renderReactPeople(data);
   });
 }
 
 var getToday = function(){
   $.get( "/cards.json", function( data ) {
+    if(data === undefined || data.length == 0){ return getCalendar(); };
     renderReactEvents(data);
   });
 }
@@ -67,6 +66,6 @@ var getCardsIf = function(counter){
   } else if (window.location.pathname === "/mentors"){
     getMentors();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
-    setTimeout(function(){ cycleCardView(counter); }, 10000);
+    setTimeout(function(){ cycleCardView(counter); }, 120000);
   }
 }
