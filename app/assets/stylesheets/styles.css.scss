@@ -31,9 +31,7 @@ height: 4em;
 }
 
 body#background {
-  // background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;
-  background:url(image_path("painted-ladies.jpg")) fixed;
-  // background:url(image_path("zen.jpg")) fixed;
+  background:url(image_path("brick4.jpg")) repeat 50% 50% fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
