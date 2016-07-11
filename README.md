@@ -13,3 +13,6 @@
 - Map
 - phase specific info
   - EX p1 learning objectives per day
+
+### Restrictions
+- Location must be less than 18 characters
