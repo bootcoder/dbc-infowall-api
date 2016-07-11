@@ -1,36 +1,38 @@
 
 var renderReactEvents = function(data){
-    React.render(<EventCardContainer events={data}/>, document.getElementById('content'));
+  React.render(<EventCardContainer events={data}/>, document.getElementById('content'));
 }
 
 var renderReactPeople = function(data){
+  console.log("ReactRenderPeople")
   React.render(<PersonCardContainer people={data}/>, document.getElementById('content'));
 }
 
 var getEvents = function(){
   $.get( "/events/cards.json", function( data ) {
-    if(data === undefined || data.length == 0){ return getCalendar(); };
+    if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
     renderReactEvents(data);
   });
 }
 
 var getMeetups = function(){
   $.get( "/meetups/cards.json", function( data ) {
-    if(data === undefined || data.length == 0){ return getCalendar(); };
+    if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
     renderReactEvents(data);
   });
 }
 
 var getMentors = function(){
   $.get( "/mentors.json", function( data ) {
-    if(data === undefined || data.length == 0){ return getCalendar(); };
+    console.log(data)
+    if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
     renderReactPeople(data);
   });
 }
 
 var getToday = function(){
   $.get( "/cards.json", function( data ) {
-    if(data === undefined || data.length == 0){ return getCalendar(); };
+    if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
     renderReactEvents(data);
   });
 }
