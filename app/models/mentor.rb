@@ -1,6 +1,7 @@
 class Mentor < ActiveRecord::Base
 
   def self.parse_deputy_mentors(deputy_array)
+    return nil if deputy_array.empty?
     results = []
     deputy_array.each do |mentor|
       results << Mentor.create(
