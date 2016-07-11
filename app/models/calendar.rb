@@ -45,9 +45,11 @@ class Calendar
   def get_img_url(staff_name, event)
     staff_name = clean_name_yoga(staff_name, event)
     first_name = staff_name.split(" ")[0].capitalize
-    p ": " * 75
-    ap first_name
-    p ": " * 75
+
+    # p ": " * 75
+    # ap first_name
+    # p ": " * 75
+
     staff_pics = {"Andrew" => 'andrew.jpg',
      "Anne" => 'anne.jpg',
      "Brick" => 'brick4.jpg',
