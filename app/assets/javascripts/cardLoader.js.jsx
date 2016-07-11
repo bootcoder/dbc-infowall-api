@@ -4,7 +4,6 @@ var renderReactEvents = function(data){
 }
 
 var renderReactPeople = function(data){
-  console.log("ReactRenderPeople")
   React.render(<PersonCardContainer people={data}/>, document.getElementById('content'));
 }
 
@@ -24,7 +23,6 @@ var getMeetups = function(){
 
 var getMentors = function(){
   $.get( "/mentors.json", function( data ) {
-    console.log(data)
     if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
     renderReactPeople(data);
   });
