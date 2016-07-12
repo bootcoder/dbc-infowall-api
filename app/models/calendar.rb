@@ -42,8 +42,9 @@ class Calendar
     @cal.find_future_events
   end
 
-  def get_img_url(staff_name, event)
-    staff_name = clean_name_yoga(staff_name, event)
+  def sanitize_img_url(staff_name, event)
+    return "dbc.jpg" if staff_name == nil
+    staff_name = sanatize_yoga_name(staff_name, event)
     first_name = staff_name.split(" ")[0].capitalize
 
     # p ": " * 75
@@ -63,6 +64,7 @@ class Calendar
      "Katy" => 'kt.jpg',
      "Leia" => 'leia.jpg',
      "Marie" => 'marie.jpg',
+     "Sally" => 'sally.jpg',
      "Shambhavi" => 'shambhavi.jpg',
      "Stu" => 'stu.jpg'
    }
@@ -75,6 +77,7 @@ class Calendar
   end
 
   def sanatize_location_length(location)
+    return "DBC" if location == nil
     return location if location.length < 18
     location.match(/^[^\,-]*/).to_s
   end
@@ -83,22 +86,23 @@ class Calendar
     calendar_login
     all_events.each do |event|
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
-      ap event
-      byebug
       if event_datetime > Date.current
+        # byebug
         @event = Event.create(
                         calendar_id: event.id,
                         title: event.title,
                         description: event.description,
                         organizer: sanatize_yoga_name(event.creator_name, event),
                         location: sanatize_location_length(event.location),
-                        img_url: get_img_url(event.creator_name, event),
+                        img_url: sanitize_img_url(event.creator_name, event),
                         event_type: "calendar",
                         attending: 0,
                         schedule: DateTime.parse(event.raw['start']['dateTime'])
                         )
-        ap @event
-        ap @event.errors
+        if @event.errors.full_messages.length > 1
+          ap @event
+          ap @event.errors
+        end
         @event
       end
     end
