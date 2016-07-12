@@ -69,31 +69,36 @@ class Calendar
    staff_pics.fetch(first_name, "dbc.jpg")
   end
 
-  def clean_name_yoga(name, event)
+  def sanatize_yoga_name(name, event)
     return "Katy" if event.title.downcase.include?('yoga')
     name
+  end
+
+  def sanatize_location_length(location)
+    return location if location.length < 18
+    location.match(/^[^\,-]*/).to_s
   end
 
   def import_events
     calendar_login
     all_events.each do |event|
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
-      # ap event
-      # byebug
+      ap event
+      byebug
       if event_datetime > Date.current
         @event = Event.create(
                         calendar_id: event.id,
                         title: event.title,
                         description: event.description,
-                        organizer: clean_name_yoga(event.creator_name, event),
-                        location: event.location,
+                        organizer: sanatize_yoga_name(event.creator_name, event),
+                        location: sanatize_location_length(event.location),
                         img_url: get_img_url(event.creator_name, event),
                         event_type: "calendar",
                         attending: 0,
                         schedule: DateTime.parse(event.raw['start']['dateTime'])
                         )
-        # ap @event
-        # ap @event.errors
+        ap @event
+        ap @event.errors
         @event
       end
     end
