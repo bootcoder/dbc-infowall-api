@@ -36,7 +36,7 @@ If you encounter this display you may need to login to the Mac to refresh the pa
 
 ![share-screen](app/assets/images/readme/share-screen.png)
 
-- Enter credentials to access the DBC-TV MacMini.
+- Enter credentials to access the DBC-TV MacMini. (Recommend to save to your keychain)
   - Username: apprentice
   - Password: DBC Standard Image Password (ask Hunter / Patrick if you don't know)
 
