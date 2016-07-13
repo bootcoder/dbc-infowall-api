@@ -1,4 +1,4 @@
-# DBC Infowall
+# [DBC Infowall](http://dbc-infowall.herokuapp.com)
 
 ### Will display various information regarding DBC student facing events.
 
