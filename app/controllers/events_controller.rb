@@ -2,13 +2,10 @@ class EventsController < ApplicationController
 
   include SessionsHelper
 
-  # before_action :authenticate_user!, :except => [:cards, :all_cards_today]
-
   EVENT_NOT_FOUND_ERROR = { :errors => "ERROR: Event not found." }
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
 
   def cards
-    # @marquee = Marquee.where(display_status: 'active').first
     @events = Event.order(schedule: :desc).last(8).reverse
     respond_to do |format|
       format.html { render :cards }

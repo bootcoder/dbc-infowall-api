@@ -15,19 +15,6 @@ var EventCardInfoBox = React.createClass({
           </div>
         </div>
       );
-    } else if (props.event_type == 'meetup') {
-      return (
-        <div className="small-12 large-12 bg-teal absolute-bottom height-60px rounded-bottom">
-          <div className="row">
-            <EventCardDate event={props} />
-            <div className="small-6 large-6 columns black-text no-margin">
-              <EventCardLocation event={props} />
-              <EventCardOrganizer event={props} />
-            </div>
-            <EventCardImage event={props} />
-          </div>
-        </div>
-      );
     } else if (props.event_type == 'internal') {
       return (
         <div className="small-12 large-12 bg-yellow absolute-bottom height-60px rounded-bottom">

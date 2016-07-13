@@ -46,31 +46,12 @@ ActiveRecord::Schema.define(version: 20160328223626) do
     t.datetime "updated_at",                       null: false
   end
 
-  create_table "meetups", force: :cascade do |t|
-    t.string   "title"
-    t.string   "organizer"
-    t.string   "location"
-    t.string   "img_url"
-    t.string   "meetup_url"
-    t.string   "attending"
-    t.string   "event_type"
-    t.text     "description"
-    t.datetime "schedule"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "mentors", force: :cascade do |t|
     t.string   "name"
     t.string   "img_url"
     t.string   "phase"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "slides", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "tokens", force: :cascade do |t|

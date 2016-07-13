@@ -14,13 +14,6 @@ var getEvents = function(){
   });
 }
 
-var getMeetups = function(){
-  $.get( "/meetups/cards.json", function( data ) {
-    if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
-    renderReactEvents(data);
-  });
-}
-
 var getMentors = function(){
   $.get( "/mentors.json", function( data ) {
     if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
@@ -61,8 +54,6 @@ var cycleCardView = function(counter){
 var getCardsIf = function(counter){
   if (window.location.pathname === "/events/cards"){
     getEvents();
-  } else if (window.location.pathname === "/meetups/cards"){
-    getMeetups();
   } else if (window.location.pathname === "/mentors"){
     getMentors();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {

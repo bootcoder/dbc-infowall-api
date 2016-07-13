@@ -15,14 +15,11 @@ Rails.application.routes.draw do
 
   get 'events/cards' => 'events#cards'
   get 'cards' => 'events#all_cards_today'
-  get 'meetups/cards' => 'meetups#cards'
 
   get 'mentors' => 'mentors#index'
 
   resources :users
-  resources :meetups
   resources :events
-  resources :slides
   resources :marquees
   resources :calendars
 end
