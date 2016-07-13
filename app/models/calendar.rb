@@ -43,35 +43,13 @@ class Calendar
   end
 
   def sanitize_img_url(staff_name, event)
-    return "dbc.jpg" if staff_name == nil
-    staff_name = sanatize_yoga_name(staff_name, event)
-    first_name = staff_name.split(" ")[0].capitalize
-
-    # p ": " * 75
-    # ap first_name
-    # p ": " * 75
-
-    staff_pics = {"Andrew" => 'andrew.jpg',
-     "Anne" => 'anne.jpg',
-     "Brick" => 'brick4.jpg',
-     "Cat" => 'cat.jpg',
-     "Hunter" => 'hunter.JPG',
-     "Hillary" => 'hillary.jpg',
-     "Jen" => 'jen.jpg',
-     "Jenny" => 'jenny.jpg',
-     "Jordan" => 'jordan.jpg',
-     "Julian" => 'julian.jpg',
-     "Katy" => 'kt.jpg',
-     "Leia" => 'leia.jpg',
-     "Marie" => 'marie.jpg',
-     "Sally" => 'sally.jpg',
-     "Shambhavi" => 'shambhavi.jpg',
-     "Stu" => 'stu.jpg'
-   }
-   staff_pics.fetch(first_name, "dbc.jpg")
+    return "sally.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
+    return "dbc.jpg" if staff_name == nil || staff_name == ""
+    sanatize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
   end
 
-  def sanatize_yoga_name(name, event)
+  def sanatize_name(name, event)
+    return "Sally" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
     return "Katy" if event.title.downcase.include?('yoga')
     name
   end
@@ -87,18 +65,18 @@ class Calendar
     all_events.each do |event|
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
       if event_datetime > Date.current
-        # byebug
         @event = Event.create(
                         calendar_id: event.id,
                         title: event.title,
                         description: event.description,
-                        organizer: sanatize_yoga_name(event.creator_name, event),
+                        organizer: sanatize_name(event.creator_name, event),
                         location: sanatize_location_length(event.location),
                         img_url: sanitize_img_url(event.creator_name, event),
                         event_type: "calendar",
                         attending: 0,
                         schedule: DateTime.parse(event.raw['start']['dateTime'])
                         )
+        # byebug
         if @event.errors.full_messages.length > 1
           ap @event
           ap @event.errors
