@@ -57,6 +57,6 @@ var getCardsIf = function(counter){
   } else if (window.location.pathname === "/mentors"){
     getMentors();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
-    setTimeout(function(){ cycleCardView(counter); }, 15000);
+    setTimeout(function(){ cycleCardView(counter); }, 45000);
   }
 }
