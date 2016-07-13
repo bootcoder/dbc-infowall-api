@@ -14,6 +14,37 @@
 - phase specific info
   - EX p1 learning objectives per day
 
+### Spinning Up
+
+- Clone the repo
+
+```
+$ git clone https://github.com/bootcoder/DBC_Infowall
+```
+
+- Install dependencies
+```
+$ bundle install
+```
+
+- Create a .env file in the root dir of the app
+```
+$ touch .env
+```
+You'll need the contents of .env, email Bootcoder
+
+- Create migrate and seed the database
+```
+$ be rake db:create
+$ be rake db:migrate
+$ be rake db:seed
+```
+
+- Spool up the Rails server
+```
+$ rails s
+```
+
 ### TV Display
 Currently the Infowall is displayed on the foyer TV using a Mac Mini to render the page.
 This documentation will be updated as the app is rolled out to additional TV's in the space.
