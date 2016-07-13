@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   EVENT_UPDATE_ERROR = { :errors => "ERROR: Event update failed." }
 
   def cards
-    @marquee = Marquee.where(display_status: 'active').first
+    # @marquee = Marquee.where(display_status: 'active').first
     @events = Event.order(schedule: :desc).last(8).reverse
     respond_to do |format|
       format.html { render :cards }

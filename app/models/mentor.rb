@@ -1,7 +1,7 @@
 class Mentor < ActiveRecord::Base
 
   def self.parse_deputy_mentors(deputy_array)
-    return nil if deputy_array.empty?
+    return nil if deputy_array == nil || deputy_array.empty?
     results = []
     deputy_array.each do |mentor|
       results << Mentor.create(
@@ -9,6 +9,6 @@ class Mentor < ActiveRecord::Base
         img_url: mentor["_DPMetaData"]["EmployeeInfo"]["Photo"],
         phase: mentor["_DPMetaData"]["OperationalUnitInfo"]["OperationalUnitName"])
     end
-    results
+    results.sort_by { |mentor| mentor.phase }
   end
 end
