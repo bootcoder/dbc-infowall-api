@@ -50,6 +50,11 @@ class Calendar
     location.match(/^[^\,-]*/).to_s
   end
 
+  def sanatize_description_length(description)
+    return description if description.length < 200
+    "DEPSCRIPTION LENGTH TOO LONG (Must be under 200 characters)"
+  end
+
   def import_events
     calendar_login
     all_events.each do |event|

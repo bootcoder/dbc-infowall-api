@@ -11,7 +11,7 @@
 - Events in space (DONE)
 - Staff Currently on-site
 - Map
-- phase specific info
+- Phase specific info (for when we have multiple displays in the space...)
   - EX p1 learning objectives per day
 
 ### Spinning Up
