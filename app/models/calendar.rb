@@ -47,7 +47,7 @@ class Calendar
   def sanatize_location_length(location)
     return "DBC" if location == nil
     return location if location.length < 18
-    location.match(/^[^\,-]*/).to_s
+    location.match(/[^-]+$/).to_s
   end
 
   def sanatize_description_length(description)
