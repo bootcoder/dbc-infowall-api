@@ -15,7 +15,3 @@
     .wrapper
       #content
       = yield
-    .footer
-      - if @marquee
-        = render 'marquees/marquee_scroll', locals: {marquee: @marquee}
-
