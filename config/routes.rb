@@ -18,6 +18,9 @@ Rails.application.routes.draw do
 
   get 'mentors' => 'mentors#index'
 
+  get 'daily_topics' => 'teachers#daily_topics'
+  get 'daily_leads' => 'teachers#daily_leads'
+
   resources :users
   resources :events
   resources :marquees
