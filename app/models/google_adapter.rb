@@ -35,7 +35,7 @@ class GoogleAdapter
       day_type = ws[[day_root_cell[0] + i, 2]]
       day_lead = ws[[day_root_cell[0] + i, day_root_cell[1]]]
       next if day_type.nil? || day_lead.nil?
-      results[day_type] = day_lead
+      results[day_type] = day_lead.match(/^[^\W]*/).to_s
     end
 
     results
