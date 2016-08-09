@@ -21,6 +21,13 @@ var getMentors = function(){
   });
 }
 
+var getStaff = function(){
+  $.get( "/staff.json", function( data ) {
+    if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
+    renderReactPeople(data);
+  });
+}
+
 var getToday = function(){
   $.get( "/cards.json", function( data ) {
     if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
@@ -42,9 +49,13 @@ var cycleCardView = function(counter){
     getCardsIf(counter);
   } else if (counter === 1) {
     counter += 1;
-    getMentors();
+    getStaff();
     getCardsIf(counter);
   } else if (counter === 2) {
+    counter += 1;
+    getMentors();
+    getCardsIf(counter);
+  } else if (counter === 3) {
     counter = 0;
     getCalendar();
     getCardsIf(counter);
@@ -56,6 +67,8 @@ var getCardsIf = function(counter){
     getEvents();
   } else if (window.location.pathname === "/mentors"){
     getMentors();
+  } else if (window.location.pathname === "/staff"){
+    getStaff();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
     setTimeout(function(){ cycleCardView(counter); }, 45000);
   }

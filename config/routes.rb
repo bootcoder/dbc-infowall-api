@@ -18,8 +18,8 @@ Rails.application.routes.draw do
 
   get 'mentors' => 'mentors#index'
 
-  get 'daily_topics' => 'teachers#daily_topics'
-  get 'daily_staff' => 'teachers#daily_staff'
+  get 'topics' => 'teachers#topics'
+  get 'staff' => 'teachers#staff'
 
   resources :users
   resources :events

@@ -10,7 +10,8 @@ class Mentor < ActiveRecord::Base
       results << Mentor.create(
         name: mentor["_DPMetaData"]["EmployeeInfo"]["DisplayName"],
         img_url: mentor["_DPMetaData"]["EmployeeInfo"]["Photo"],
-        phase: phase)
+        phase: phase,
+        staff_type: "Mentor")
     end
     results.sort_by { |mentor| mentor.phase }
   end
