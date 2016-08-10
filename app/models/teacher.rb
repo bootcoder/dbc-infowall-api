@@ -1,4 +1,3 @@
-
 class Teacher < ActiveRecord::Base
 
   after_initialize :add_attributes

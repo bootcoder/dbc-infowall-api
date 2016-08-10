@@ -49,7 +49,9 @@ var cycleCardView = function(counter){
     getCardsIf(counter);
   } else if (counter === 1) {
     counter += 1;
-    getStaff();
+    // getStaff();
+    // Temp call till rollout
+    getCalendar();
     getCardsIf(counter);
   } else if (counter === 2) {
     counter += 1;
