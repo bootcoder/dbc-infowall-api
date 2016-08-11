@@ -49,9 +49,9 @@ var cycleCardView = function(counter){
     getCardsIf(counter);
   } else if (counter === 1) {
     counter += 1;
-    // getStaff();
+    getStaff();
     // Temp call till rollout
-    getCalendar();
+    // getCalendar();
     getCardsIf(counter);
   } else if (counter === 2) {
     counter += 1;
@@ -72,6 +72,6 @@ var getCardsIf = function(counter){
   } else if (window.location.pathname === "/staff"){
     getStaff();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
-    setTimeout(function(){ cycleCardView(counter); }, 45000);
+    setTimeout(function(){ cycleCardView(counter); }, 10000);
   }
 }

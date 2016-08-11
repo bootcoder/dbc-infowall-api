@@ -56,6 +56,7 @@ class Calendar
   end
 
   def import_events
+    Event.delete_all
     calendar_login
     all_events.each do |event|
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])

@@ -1,9 +1,8 @@
 class CalendarsController < ApplicationController
 
   def index
-
-    @old_calendar_events = Event.where(event_type: "calendar")
-    @old_calendar_events.destroy_all
+    # @old_calendar_events = Event.where(event_type: "calendar")
+    # @old_calendar_events.delete_all
 
     @calendar = Calendar.new(Token.last)
     @calendar.import_events

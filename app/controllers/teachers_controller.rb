@@ -10,7 +10,7 @@ class TeachersController < ApplicationController
   end
 
   def staff
-    Teacher.destroy_all
+    Teacher.delete_all
     drive = GoogleAdapter.new
     @daily_staff = []
     count = 0

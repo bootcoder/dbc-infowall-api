@@ -25,4 +25,5 @@ class Event < ActiveRecord::Base
     end
     @events
   end
+
 end

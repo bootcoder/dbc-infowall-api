@@ -1,7 +1,7 @@
 class Mentor < ActiveRecord::Base
 
   def self.parse_deputy_mentors(deputy_array)
-    Mentor.destroy_all
+    Mentor.delete_all
     return nil if deputy_array == (nil || deputy_array.empty?)
     results = []
     deputy_array.each do |mentor|
