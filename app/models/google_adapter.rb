@@ -31,13 +31,12 @@ class GoogleAdapter
     off_root_cell = find_off_root_cell(day_root_cell)
     count = off_root_cell[0] - day_root_cell[0]
 
-    count.times do |i|
-      day_type = ws[[day_root_cell[0] + i, 2]]
-      day_lead = ws[[day_root_cell[0] + i, day_root_cell[1]]]
-      next if day_type.nil? || day_lead.nil?
-      results[day_type] = day_lead.match(/^[^\W]*/).to_s
+    count.times do |count_int|
+      day_type = ws[[day_root_cell[0] + count_int, 2]]
+      day_lead = ws[[day_root_cell[0] + count_int, day_root_cell[1]]]
+      next if (day_type.nil? || day_lead.nil? || day_lead.match(/Final/))
+      results[day_lead.match(/^[^\W]*/).to_s] = day_type
     end
-
     results
   end
 
