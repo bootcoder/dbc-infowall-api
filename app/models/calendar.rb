@@ -56,12 +56,11 @@ class Calendar
   end
 
   def import_events
-    Event.delete_all
     calendar_login
     all_events.each do |event|
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
       if event_datetime > Date.current
-        @event = Event.create(
+        @event = Event.find_or_create_by(
                         calendar_id: event.id,
                         title: event.title,
                         description: event.description,
