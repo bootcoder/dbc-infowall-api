@@ -37,6 +37,7 @@ class GoogleAdapter
       next if (day_type.nil? || day_lead.nil? || day_lead.match(/Final/))
       results[day_lead.match(/^[^\W]*/).to_s] = day_type
     end
+    results['Walker'] = 'Campus Director'
     results
   end
 

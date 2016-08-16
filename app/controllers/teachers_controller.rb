@@ -16,7 +16,7 @@ class TeachersController < ApplicationController
     count = 0
     drive.get_daily_staff.each do |name, phase|
       count += 1
-      phase = phase.downcase.match(/float/) ? phase : "Phase #{count}"
+      phase = phase.downcase.match(/float|campus/) ? phase : "Phase #{count}"
       @daily_staff << Teacher.create(name: name, phase: phase)
     end
     # ap "* " * 55
