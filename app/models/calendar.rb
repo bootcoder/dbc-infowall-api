@@ -60,17 +60,17 @@ class Calendar
     all_events.each do |event|
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
       if event_datetime > Date.current
-        @event = Event.find_or_create_by(
-                        calendar_id: event.id,
-                        title: event.title,
-                        description: event.description,
-                        organizer: sanatize_name(event.creator_name, event),
-                        location: sanatize_location_length(event.location),
-                        img_url: sanitize_img_url(event.creator_name, event),
-                        event_type: "calendar",
-                        attending: 0,
-                        schedule: DateTime.parse(event.raw['start']['dateTime'])
-                        )
+        @event = Event.find_or_create_by(calendar_id: event.id)
+        @event.update(
+          title: event.title,
+          description: event.description,
+          organizer: sanatize_name(event.creator_name, event),
+          location: sanatize_location_length(event.location),
+          img_url: sanitize_img_url(event.creator_name, event),
+          event_type: "calendar",
+          attending: 0,
+          schedule: DateTime.parse(event.raw['start']['dateTime'])
+          )
         if @event.errors.full_messages.length > 1
           ap @event
           ap @event.errors
