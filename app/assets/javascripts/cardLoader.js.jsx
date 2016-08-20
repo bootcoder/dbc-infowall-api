@@ -72,6 +72,6 @@ var getCardsIf = function(counter){
   } else if (window.location.pathname === "/staff"){
     getStaff();
   } else if (window.location.pathname === "/cards" || window.location.pathname === '/') {
-    setTimeout(function(){ cycleCardView(counter); }, 20000);
+    setTimeout(function(){ cycleCardView(counter); }, 40000);
   }
 }
