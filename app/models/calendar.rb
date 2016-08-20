@@ -60,9 +60,9 @@ class Calendar
     all_events.each do |event|
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
       if event_datetime > Date.current
-        @event = Event.find_or_create_by(calendar_id: event.id)
+        @event = Event.find_or_create_by(title: event.title)
         @event.update(
-          title: event.title,
+          calendar_id: event.id,
           description: event.description,
           organizer: sanatize_name(event.creator_name, event),
           location: sanatize_location_length(event.location),
