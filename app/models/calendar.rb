@@ -57,7 +57,8 @@ class Calendar
 
   def import_events
     calendar_login
-    all_events.each do |event|
+    all_events.each_with_index do |event, index|
+      next if index > 15
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
       if event_datetime > Date.current
         @event = Event.find_or_create_by(title: event.title)
