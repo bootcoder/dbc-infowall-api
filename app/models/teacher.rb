@@ -25,7 +25,7 @@ class Teacher < ActiveRecord::Base
     when "seba"
       self.img_url = "https://avatars.githubusercontent.com/u/6635552?v=3"
     when "max"
-      self.img_url = "http://flicksplay.com/images/defaults/batman.jpg"
+      self.img_url = "https://avatars.githubusercontent.com/u/16928707?v=3"
     when "walker"
       self.img_url = "https://avatars.githubusercontent.com/u/16601726?v=3"
     else
