@@ -70,7 +70,7 @@ class Calendar
           img_url: sanitize_img_url(event.creator_name, event),
           event_type: "calendar",
           attending: 0,
-          schedule: DateTime.parse(event.raw['start']['dateTime'])
+          schedule: event_datetime
           )
         if @event.errors.full_messages.length > 1
           ap @event

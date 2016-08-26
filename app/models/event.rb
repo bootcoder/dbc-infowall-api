@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
 
   validates :location, length: { maximum: 18}
 
-  validates_presence_of :description
+  # validates_presence_of :description
   validates_presence_of :location
   validates_presence_of :title
   validates_presence_of :organizer
@@ -18,12 +18,13 @@ class Event < ActiveRecord::Base
   def self.todays_cards
     @events = []
     Event.all.each do |event|
+
       if event.schedule.today?
         event.event_type = 'today'
         @events << event
       end
     end
-    @events
+    @events.uniq
   end
 
 end

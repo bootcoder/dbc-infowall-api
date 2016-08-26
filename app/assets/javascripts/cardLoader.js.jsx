@@ -30,6 +30,7 @@ var getStaff = function(){
 
 var getToday = function(){
   $.get( "/cards.json", function( data ) {
+    console.log(data)
     if(data === null || data === undefined || data.length == 0){ return getCalendar(); };
     renderReactEvents(data);
   });
@@ -50,8 +51,6 @@ var cycleCardView = function(counter){
   } else if (counter === 1) {
     counter += 1;
     getStaff();
-    // Temp call till rollout
-    // getCalendar();
     getCardsIf(counter);
   } else if (counter === 2) {
     counter += 1;
