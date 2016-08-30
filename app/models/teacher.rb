@@ -28,6 +28,8 @@ class Teacher < ActiveRecord::Base
       self.img_url = "https://avatars.githubusercontent.com/u/16928707?v=3"
     when "walker"
       self.img_url = "https://avatars.githubusercontent.com/u/16601726?v=3"
+    when "shambhavi"
+      self.img_url = "https://avatars.githubusercontent.com/u/5216008?v=3"
     else
       self.img_url = random_placeholder.shuffle.pop
     end
