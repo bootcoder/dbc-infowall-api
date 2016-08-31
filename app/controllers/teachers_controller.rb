@@ -10,6 +10,8 @@ class TeachersController < ApplicationController
   end
 
   def staff
+    @calendar = Calendar.new(Token.last)
+    @calendar.import_events
     Teacher.delete_all
     drive = GoogleAdapter.new
     @daily_staff = []
