@@ -61,9 +61,9 @@ class Calendar
       next if index > 15
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
       if event_datetime > Date.current
-        @event = Event.find_or_create_by(title: event.title)
+        @event = Event.find_or_create_by(calendar_id: event.id)
         @event.update(
-          calendar_id: event.id,
+          title: event.title,
           description: event.description,
           organizer: sanitize_name(event.creator_name, event),
           location: sanitize_location_length(event.location),
