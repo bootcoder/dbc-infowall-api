@@ -5,6 +5,7 @@ class Calendar
   attr_reader :cal
   def initialize(token)
     @token = token
+    calendar_login
   end
 
   def calendar_login
@@ -35,28 +36,27 @@ class Calendar
   def sanitize_img_url(staff_name, event)
     return "jenny.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
     return "dbc.jpg" if staff_name == nil || staff_name == ""
-    sanatize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
+    sanitize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
   end
 
-  def sanatize_name(name, event)
+  def sanitize_name(name, event)
     return "Jenny" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
     return "Katy" if event.title.downcase.include?('yoga')
     name
   end
 
-  def sanatize_location_length(location)
+  def sanitize_location_length(location)
     return "DBC" if location == nil
     return location if location.length < 18
     location.match(/[^-]+$/).to_s
   end
 
-  def sanatize_description_length(description)
+  def sanitize_description_length(description)
     return description if description.length < 200
     "DEPSCRIPTION LENGTH TOO LONG (Must be under 200 characters)"
   end
 
   def import_events
-    calendar_login
     all_events.each_with_index do |event, index|
       next if index > 15
       event_datetime = DateTime.parse(event.raw['start']['dateTime'])
@@ -65,8 +65,8 @@ class Calendar
         @event.update(
           calendar_id: event.id,
           description: event.description,
-          organizer: sanatize_name(event.creator_name, event),
-          location: sanatize_location_length(event.location),
+          organizer: sanitize_name(event.creator_name, event),
+          location: sanitize_location_length(event.location),
           img_url: sanitize_img_url(event.creator_name, event),
           event_type: "calendar",
           attending: 0,
