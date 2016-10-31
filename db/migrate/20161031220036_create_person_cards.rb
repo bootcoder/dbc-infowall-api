@@ -5,6 +5,7 @@ class CreatePersonCards < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :phase
       t.string :img_url
+      t.string :staff_type
 
     end
   end

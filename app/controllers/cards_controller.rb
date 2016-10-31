@@ -13,7 +13,9 @@ class CardsController < ApplicationController
   end
 
   def mentors
-
+    @deputy_adapter = DeputyAdapter.new
+    @mentors = @deputy_adapter.parse_deputy_mentors
+    render json: @mentors
   end
 
   def workshops

@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20161031220036) do
     t.string "name"
     t.string "phase"
     t.string "img_url"
+    t.string "staff_type"
   end
 
   create_table "tokens", force: :cascade do |t|
