@@ -1,0 +1,2 @@
+class PersonCard < ApplicationRecord
+end
