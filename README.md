@@ -1,24 +1,22 @@
-# README
+# InfoWall API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## JSON API serving various data related to onsite DBC-SF events.
 
-Things you may want to cover:
+### Resources:
+  - Calendar Events from DBC-Infowall calendar
+  - Today's Calendar Events from DBC-Infowall calendar (maybe all events for today)
+  - Current Staff onsite with area from Teachers scheduling google sheet
+  - Current Mentors onsite with area
+  - Upcoming Workshops pulled from Deputy workshops
+  - Daily teaching topics from Teachers scheduling google sheet
 
-* Ruby version
 
-* System dependencies
+### EndPoints:
+  - /events
+  - /today
+  - /mentors
+  - /workshops
+  - /topics
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Controller
+All endpoints are derived from the ```cards_controller```
