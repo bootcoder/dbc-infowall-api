@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  root to: 'cards#events'
+
+  get '/events', to: 'cards#events'
+  get '/today', to: 'cards#today'
+  get '/mentors', to: 'cards#mentors'
+  get '/workshops', to: 'cards#workshops'
+  get '/topics', to: 'cards#topics'
+  get '/staff', to: 'cards#staff'
+
 end
