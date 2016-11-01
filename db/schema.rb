@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20161031220036) do
     t.string   "location"
     t.string   "img_url"
     t.string   "card_type"
-    t.string   "calendar_id"
+    t.string   "source_id"
     t.datetime "schedule"
   end
 

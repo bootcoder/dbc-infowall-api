@@ -55,7 +55,7 @@ class CalendarAdapter
 
       @calendar_event = EventCard.new(
         id: index,
-        calendar_id: event.id,
+        source_id: event.id,
         title: event.title,
         description: event.description,
         organizer: sanitize_name(event.creator_name, event),

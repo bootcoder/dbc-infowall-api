@@ -17,8 +17,8 @@ class DeputyAdapter
   end
 
   def get_current_roster
-    # self.class.post("/resource/Roster/QUERY", headers: {"Authorization" => "OAuth #{@token}"}, query: {"search":{"f1":{"field":"OperationalUnit","type":"lk","data":"9"}}})
-    self.class.post("/resource/Roster/QUERY", headers: {"Authorization" => "OAuth #{@token}"}, body: {"search":{"f1":{"field":"Id","type":"eq","data":"494}"}}})
+    params = {"search":{"f1":{"field":"OperationalUnit","type":"eq","data":9},"f2":{"field":"Employee","type":"ne","data":0}}}.to_json
+    self.class.post("/resource/Roster/QUERY", headers: {"Authorization" => "OAuth #{@token}"}, body: params)
   end
 
   def mentors_on_shift
@@ -41,18 +41,23 @@ class DeputyAdapter
   def list_upcoming_workshops
     deputy_schedule = get_current_roster
     results = []
-    ap deputy_schedule
-    deputy_schedule.each do |key, value|
-      # next unless shift['StartTimeLocalized'].to_date > Date.today
-      # next unless shift['Employee'] != 0
-      ap key
-      # byebug
-      # results << shift
+    deputy_schedule.each_with_index do |shift, index|
+      next unless shift['StartTimeLocalized'].to_date > Date.today
+      results << EventCard.new(
+        id: index,
+        title: "Workshop",
+        description: shift["Comment"],
+        organizer: shift["_DPMetaData"]["EmployeeInfo"]["DisplayName"],
+        img_url: shift["_DPMetaData"]["EmployeeInfo"]["Photo"],
+        card_type: "workshop",
+        source_id: shift["Id"],
+        location: "DBC",
+        schedule: shift["StartTimeLocalized"].to_datetime)
     end
-    # p "* " * 90
-    # ap results.count
-    # p "* " * 90
-    # results.sort_by { |shift| shift['StartTimeLocalized']}
+    p "* " * 90
+    ap results.count
+    p "* " * 90
+    results.sort_by { |shift| shift['StartTimeLocalized']}
   end
 
 end
