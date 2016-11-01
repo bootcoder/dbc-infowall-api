@@ -14,12 +14,14 @@ class CardsController < ApplicationController
 
   def mentors
     @deputy_adapter = DeputyAdapter.new
-    @mentors = @deputy_adapter.parse_deputy_mentors
+    @mentors = @deputy_adapter.mentors_on_shift
     render json: @mentors
   end
 
   def workshops
-
+    @deputy_adapter = DeputyAdapter.new
+    @workshops = @deputy_adapter.list_upcoming_workshops
+    render json: @workshops
   end
 
   def topics
