@@ -25,11 +25,12 @@ class CardsController < ApplicationController
   end
 
   def topics
-
   end
 
   def staff
-
+    @sheets_adapter = GoogleSheetsAdapter.new
+    p @results = @sheets_adapter.get_daily_staff
+    render json: @results
   end
 
 
