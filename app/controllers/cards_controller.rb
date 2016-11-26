@@ -29,7 +29,8 @@ class CardsController < ApplicationController
 
   def staff
     @sheets_adapter = GoogleSheetsAdapter.new
-    p @results = @sheets_adapter.get_daily_staff
+    @results = @sheets_adapter.get_daily_staff
+    ap @results
     render json: @results
   end
 
