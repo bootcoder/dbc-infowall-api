@@ -28,7 +28,7 @@ class GoogleSheetsAdapter
     # byebug
     results = {}
     @leads_worksheet ||= leads_worksheet
-    # ap @leads_worksheet.cells
+    ap @leads_worksheet.cells
     # day_root_cell = find_day_root_cell
     # return results if day_root_cell.nil?
     # off_root_cell = find_off_root_cell(day_root_cell)
