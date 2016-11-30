@@ -3,7 +3,8 @@ require 'google_calendar'
 class CalendarAdapter
 
   attr_reader :cal
-  def initialize(args={})
+
+  def initialize(args = {})
     @token = args.fetch(:token, Token.last)
     calendar_login
   end
@@ -71,10 +72,11 @@ class CalendarAdapter
       end
 
       # ap @calendar_event
+
       cards << @calendar_event
 
     end
-    cards
+    cards.uniq {|card| card.title}
   end
 
   def events_today
