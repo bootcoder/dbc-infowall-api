@@ -9,16 +9,24 @@ class GoogleSheetsAdapter
     @ws = session.spreadsheet_by_key("1cNslAPoctBreV5dzNspIAbVckaY5RvaET81cl-8bJkM").worksheets
   end
 
-  def topics_worksheet
-    # check title of sheet here....
-    @daily_topics ||= @ws[3].cells
-  end
-
   def leads_worksheet
-    # check title of sheet here....
     @ws.each do |sheet|
       return sheet if sheet.title.include?("CURRENT")
     end
+  end
+
+  def topics_worksheet
+    @ws.each do |sheet|
+      return sheet if sheet.title.include?("Topics")
+    end
+  end
+
+  def get_daily_topics
+    p "HERE " * 90
+    results = {}
+    @topics_worksheet ||= topics_worksheet
+    ap @topics_worksheet.cells
+    results
   end
 
   def get_daily_staff
