@@ -37,8 +37,8 @@ class PersonCard < ApplicationRecord
 
   def self.parse_staff_cards(card_hash)
     results = []
+    count = 0
     card_hash.each do |person, role|
-      count = 0
       results << PersonCard.new(name: person,
                                 phase: role,
                                 img_url: PersonCard.set_img_url(person),
