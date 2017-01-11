@@ -42,7 +42,7 @@ class PersonCard < ApplicationRecord
       results << PersonCard.new(name: person,
                                 phase: role,
                                 img_url: PersonCard.set_img_url(person),
-                                staff_type: 'staff',
+                                staff_type: 'Staff',
                                 id: count += 1)
     end
     results
