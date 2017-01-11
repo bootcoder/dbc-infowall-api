@@ -61,8 +61,8 @@ class GoogleSheetsAdapter
   def find_day_root_cell
 
     # Toggle this date on for debugging / DD/MM/YYYY format
-    today = Date.parse("2-1-2016").to_s
-    # today = Date.today.to_s
+    # today = Date.parse("2-1-2016").to_s
+    today = Date.today.to_s
 
     @leads_worksheet.cells.each do |key, value|
       if value.match(/^\d{1,2}\/\d{1,2}$/)
