@@ -25,15 +25,20 @@ class CalendarAdapter
   end
 
   def sanitize_img_url(staff_name, event)
-    return "frank.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" || staff_name == 'Jenny'
+
+    return "lauren.jpg" if event.raw["creator"]["email"] == "lauren.vang@devbootcamp.com"
+    return "frank.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" ||  event.raw["creator"]["email"] == "jenny@devbootcamp.com" || staff_name == 'Jenny' || event.raw["creator"]["email"] == "frank.gonzalez@devbootcamp.com"
     return "dbc.jpg" if staff_name == nil || staff_name == "" || event.title.include?('White-boarding')
+
     sanitize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
+
   end
 
   def sanitize_name(name, event)
-    return "Frank" if name.nil?
-    return "Frank" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
+    return "Lauren" if event.raw["creator"]["email"] == "lauren.vang@devbootcamp.com"
+    return "Frank" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" || event.raw["creator"]["email"] == "jenny@devbootcamp.com"
     return "Katy" if event.title.downcase.include?('yoga')
+    return "Frank" if name.nil?
     name
   end
 
@@ -52,7 +57,6 @@ class CalendarAdapter
     description.gsub!("\n", '')
 
     return description if description.length < 200
-
 
     # Split description into words and iterate, add word length to count
     # Return sanitized_description with dots when count reaches 200
@@ -82,7 +86,7 @@ class CalendarAdapter
         description: sanitize_description(event.description),
         organizer: sanitize_name(event.creator_name, event),
         location: sanitize_location_length(event.location),
-        img_url: sanitize_img_url(event.creator_name, event),
+        img_url: sanitize_img_url(sanitize_name(event.creator_name, event), event),
         card_type: "calendar",
         schedule: event_datetime
       )
