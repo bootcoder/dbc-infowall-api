@@ -36,9 +36,10 @@ class CalendarAdapter
 
   def sanitize_name(name, event)
     return "Lauren" if event.raw["creator"]["email"] == "lauren.vang@devbootcamp.com"
-    return "Frank" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" || event.raw["creator"]["email"] == "jenny@devbootcamp.com"
-    return "Katy" if event.title.downcase.include?('yoga')
+    return "Frank" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" || event.raw["creator"]["email"] == "jenny@devbootcamp.com" || event.raw["creator"]["email"] == "frank.gonzalez@devbootcamp.com"
     return "Frank" if name.nil?
+    return "Frank" if event.title.include?('White-boarding') || name.downcase.include?('jenny')
+    return "Katy" if event.title.downcase.include?('yoga')
     name
   end
 
