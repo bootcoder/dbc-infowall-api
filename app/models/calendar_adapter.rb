@@ -25,14 +25,20 @@ class CalendarAdapter
   end
 
   def sanitize_img_url(staff_name, event)
-    return "jenny.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
-    return "dbc.jpg" if staff_name == nil || staff_name == "" || staff_name == 'Jenny' || event.title.include?('White-boarding')
+
+    return "lauren.jpg" if event.raw["creator"]["email"] == "lauren.vang@devbootcamp.com"
+    return "frank.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" ||  event.raw["creator"]["email"] == "jenny@devbootcamp.com" || staff_name == 'Jenny' || event.raw["creator"]["email"] == "frank.gonzalez@devbootcamp.com"
+    return "dbc.jpg" if staff_name == nil || staff_name == "" || event.title.include?('White-boarding')
+
     sanitize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
+
   end
 
   def sanitize_name(name, event)
-    return "Jenny" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
+    return "Lauren" if event.raw["creator"]["email"] == "lauren.vang@devbootcamp.com"
+    return "Frank" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" || event.raw["creator"]["email"] == "jenny@devbootcamp.com"
     return "Katy" if event.title.downcase.include?('yoga')
+    return "Frank" if name.nil?
     name
   end
 
@@ -42,9 +48,28 @@ class CalendarAdapter
     location.match(/[^-]+$/).to_s
   end
 
-  def sanitize_description_length(description)
+  def sanitize_description(description)
+
+    return '' unless description
+
+    # Remove any text in parens, (generally staff notes)
+    description.gsub!(/\(.*\)/, '')
+    description.gsub!("\n", '')
+
     return description if description.length < 200
-    "DEPSCRIPTION LENGTH TOO LONG (Must be under 200 characters)"
+
+    # Split description into words and iterate, add word length to count
+    # Return sanitized_description with dots when count reaches 200
+    words = description.split(' ')
+    sanitized_description = ''
+    count = 0
+
+    words.each do |word|
+      return sanitized_description.concat('...') if count >= 200
+      count += word.length
+      sanitized_description.concat(word).concat(' ')
+    end
+
   end
 
   def parse_all_events
@@ -58,15 +83,15 @@ class CalendarAdapter
         id: index,
         source_id: event.id,
         title: event.title,
-        description: event.description,
+        description: sanitize_description(event.description),
         organizer: sanitize_name(event.creator_name, event),
         location: sanitize_location_length(event.location),
-        img_url: sanitize_img_url(event.creator_name, event),
+        img_url: sanitize_img_url(sanitize_name(event.creator_name, event), event),
         card_type: "calendar",
         schedule: event_datetime
       )
 
-      if @calendar_event.errors.full_messages.length > 1
+      if @calendar_event.errors.full_messages.length > 0
         ap @calendar_event
         ap @calendar_event.errors
       end
