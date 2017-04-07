@@ -22,10 +22,11 @@ class GoogleSheetsAdapter
     end
   end
 
+
   def get_daily_topics
     results = {}
     @topics_worksheet ||= topics_worksheet
-    ap @topics_worksheet.cells
+    # ap @topics_worksheet.cells
     results
   end
 
@@ -52,8 +53,8 @@ class GoogleSheetsAdapter
       next if (day_type.nil? || day_lead.nil? || day_lead.match(/Final/) || day_type.match(/Week/))
       results[day_lead.match(/^[^\W]*/).to_s] = day_type
     end
-    p "in set staff " * 10
-    ap results
+    # p "in set staff " * 10
+    # ap results
     results
 
   end
