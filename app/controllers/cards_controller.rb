@@ -26,14 +26,14 @@ class CardsController < ApplicationController
 
   def topics
     @sheets_adapter = GoogleSheetsAdapter.new
-    @results = @sheets_adapter.get_daily_topics[0..7]
+    @results =  @sheets_adapter.get_daily_topics[0..7]
     render json: @results
   end
 
   def staff
     @sheets_adapter = GoogleSheetsAdapter.new
-    @results = @sheets_adapter.get_daily_staff[0..7]
-    # ap @results
+    @results = PersonCard.parse_staff_cards(@sheets_adapter.get_daily_staff)
+    ap @results
     render json: @results
   end
 

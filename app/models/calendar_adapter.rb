@@ -26,7 +26,7 @@ class CalendarAdapter
 
   def sanitize_img_url(staff_name, event)
     return "jenny.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com"
-    return "dbc.jpg" if staff_name == nil || staff_name == ""
+    return "dbc.jpg" if staff_name == nil || staff_name == "" || staff_name == 'Jenny' || event.title.include?('White-boarding')
     sanitize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
   end
 
