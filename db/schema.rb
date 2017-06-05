@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161031220036) do
+ActiveRecord::Schema.define(version: 20170605045700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20161031220036) do
     t.string "phase"
     t.string "img_url"
     t.string "staff_type"
+    t.string "card_type"
   end
 
   create_table "tokens", force: :cascade do |t|
