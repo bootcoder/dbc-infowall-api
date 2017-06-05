@@ -43,7 +43,7 @@ class PersonCard < ApplicationRecord
                                 phase: role,
                                 img_url: PersonCard.set_img_url(person),
                                 staff_type: 'Staff',
-                                card_type: 'person'
+                                card_type: 'person',
                                 id: count += 1)
     end
     results
