@@ -17,7 +17,7 @@ class PersonCard < ApplicationRecord
     when 'sherif'
       'https://avatars.githubusercontent.com/u/24913?v=3'
     when 'rebekah'
-      'https://i.imgur.com/CzRXJnA.jpg'
+      'https://i.imgur.com/VouiqPp.jpg'
     when 'ken'
       'https://avatars.githubusercontent.com/u/2986627?v=3'
     when 'stanley'
