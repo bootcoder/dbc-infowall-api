@@ -39,7 +39,7 @@ class GoogleSheetsAdapter
     # second val == col
 
     results = {}
-    results['Walker'] = 'Campus Director'
+    results['Rebekah'] = 'Campus Director'
 
     @leads_worksheet ||= leads_worksheet
     day_root_cell = find_day_root_cell
