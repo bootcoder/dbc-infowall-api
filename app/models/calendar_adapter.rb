@@ -27,7 +27,7 @@ class CalendarAdapter
   def sanitize_img_url(staff_name, event)
 
     return "lauren.jpg" if event.raw["creator"]["email"] == "lauren.vang@devbootcamp.com"
-    return "frank.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" ||  event.raw["creator"]["email"] == "jenny@devbootcamp.com" || staff_name == 'Jenny' || event.raw["creator"]["email"] == "frank.gonzalez@devbootcamp.com"
+    return "dbc.jpg" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" ||  event.raw["creator"]["email"] == "jenny@devbootcamp.com" || staff_name == 'Jenny' || event.raw["creator"]["email"] == "frank.gonzalez@devbootcamp.com"
     return "dbc.jpg" if staff_name == nil || staff_name == "" || event.title.include?('White-boarding')
 
     sanitize_name(staff_name, event).split(" ")[0].downcase.concat(".jpg")
@@ -36,9 +36,9 @@ class CalendarAdapter
 
   def sanitize_name(name, event)
     return "Lauren" if event.raw["creator"]["email"] == "lauren.vang@devbootcamp.com"
-    return "Frank" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" || event.raw["creator"]["email"] == "jenny@devbootcamp.com" || event.raw["creator"]["email"] == "frank.gonzalez@devbootcamp.com"
-    return "Frank" if name.nil?
-    return "Frank" if event.title.include?('White-boarding') || name.downcase.include?('jenny')
+    return "Lauren" if event.raw["creator"]["email"] == "sally.attaalla@devbootcamp.com" || event.raw["creator"]["email"] == "jenny@devbootcamp.com" || event.raw["creator"]["email"] == "frank.gonzalez@devbootcamp.com"
+    return "Lauren" if name.nil?
+    return "Lauren" if event.title.include?('White-boarding') || name.downcase.include?('jenny')
     return "Katy" if event.title.downcase.include?('yoga')
     name
   end
