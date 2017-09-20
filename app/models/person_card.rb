@@ -23,7 +23,7 @@ class PersonCard < ApplicationRecord
     when 'stanley'
       'https://avatars.githubusercontent.com/u/25013113?v=3'
     when 'james'
-      'https://i.imgur.com/xSx7S9d.jpg'
+      'https://imgur.com/a/39ASh'
     when 'michael'
       'https://avatars.githubusercontent.com/u/10182814?v=3'
     when 'masha'
